@@ -1,12 +1,16 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { validate } from '../middleware/validate';
 import { authenticate } from '../middleware/authenticate';
+import { rateLimit } from '../middleware/rate-limit';
 import { loginSchema, registerSchema, refreshTokenSchema } from '@brokerflow/shared';
 import * as authService from '../services/auth.service';
 
 const router = Router();
 
-router.post('/login', validate(loginSchema), async (req: Request, res: Response, next: NextFunction) => {
+// Stricter rate limit for auth endpoints (20 requests per 15 minutes)
+const authRateLimit = rateLimit(15 * 60 * 1000, 20);
+
+router.post('/login', authRateLimit, validate(loginSchema), async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await authService.login(req.body as { email: string; password: string });
     res.json({ data: result });
@@ -15,7 +19,7 @@ router.post('/login', validate(loginSchema), async (req: Request, res: Response,
   }
 });
 
-router.post('/register', validate(registerSchema), async (req: Request, res: Response, next: NextFunction) => {
+router.post('/register', authRateLimit, validate(registerSchema), async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await authService.register(
       req.body as { email: string; password: string; first_name: string; last_name: string; role?: import('@brokerflow/shared').UserRole }
@@ -26,7 +30,7 @@ router.post('/register', validate(registerSchema), async (req: Request, res: Res
   }
 });
 
-router.post('/refresh', validate(refreshTokenSchema), async (req: Request, res: Response, next: NextFunction) => {
+router.post('/refresh', authRateLimit, validate(refreshTokenSchema), async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { refresh_token } = req.body as { refresh_token: string };
     const result = await authService.refreshToken(refresh_token);
@@ -36,7 +40,7 @@ router.post('/refresh', validate(refreshTokenSchema), async (req: Request, res: 
   }
 });
 
-router.get('/me', authenticate, async (req: Request, res: Response, next: NextFunction) => {
+router.get('/me', authRateLimit, authenticate, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const user = await authService.getCurrentUser(req.user!.user_id);
     res.json({ data: user });
@@ -45,7 +49,7 @@ router.get('/me', authenticate, async (req: Request, res: Response, next: NextFu
   }
 });
 
-router.post('/logout', authenticate, async (req: Request, res: Response, next: NextFunction) => {
+router.post('/logout', authRateLimit, authenticate, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { refresh_token } = req.body as { refresh_token?: string };
     await authService.logout(req.user!.user_id, refresh_token);
