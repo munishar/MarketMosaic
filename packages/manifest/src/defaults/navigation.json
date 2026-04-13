@@ -1,0 +1,20 @@
+{
+  "items": [
+    { "key": "dashboard", "label": "Dashboard", "icon": "LayoutDashboard", "path": "/", "order": 1 },
+    { "key": "clients", "label": "Clients", "icon": "Building2", "path": "/clients", "order": 2 },
+    { "key": "contacts", "label": "Contacts", "icon": "Users", "path": "/contacts", "order": 3 },
+    { "key": "carriers", "label": "Carriers", "icon": "Shield", "path": "/carriers", "order": 4 },
+    { "key": "submissions", "label": "Submissions", "icon": "FileText", "path": "/submissions", "order": 5, "badge_source": "submissions.pending_count" },
+    { "key": "emails", "label": "Emails", "icon": "Mail", "path": "/emails", "order": 6, "badge_source": "emails.unread_count" },
+    { "key": "capacity", "label": "Capacity", "icon": "BarChart3", "path": "/capacity", "order": 7 },
+    { "key": "network", "label": "Network", "icon": "Network", "path": "/network", "order": 8 },
+    { "key": "lines_of_business", "label": "Lines of Business", "icon": "Layers", "path": "/lines-of-business", "order": 9, "parent_key": "settings" },
+    { "key": "forms", "label": "Forms/Papers", "icon": "FileStack", "path": "/forms", "order": 10, "parent_key": "settings" },
+    { "key": "templates", "label": "Templates", "icon": "LayoutTemplate", "path": "/templates", "order": 11, "parent_key": "settings" },
+    { "key": "settings", "label": "Settings", "icon": "Settings", "path": "/settings", "order": 20, "roles": ["admin", "manager"] },
+    { "key": "admin_users", "label": "Users", "icon": "UserCog", "path": "/settings/users", "order": 21, "parent_key": "settings", "roles": ["admin"] },
+    { "key": "admin_teams", "label": "Teams", "icon": "UsersRound", "path": "/settings/teams", "order": 22, "parent_key": "settings", "roles": ["admin", "manager"] },
+    { "key": "admin_ams", "label": "AMS Connections", "icon": "PlugZap", "path": "/settings/ams", "order": 23, "parent_key": "settings", "roles": ["admin"] },
+    { "key": "admin_sync", "label": "Sync Schedules", "icon": "RefreshCw", "path": "/settings/sync", "order": 24, "parent_key": "settings", "roles": ["admin", "manager"] }
+  ]
+}

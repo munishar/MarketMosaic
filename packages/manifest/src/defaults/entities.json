@@ -1,0 +1,112 @@
+[
+  {
+    "key": "client",
+    "name": "Client",
+    "plural_name": "Clients",
+    "table_name": "clients",
+    "icon": "Building2",
+    "primary_field": "company_name",
+    "search_fields": ["company_name", "dba", "primary_contact_name", "primary_contact_email"],
+    "default_sort": { "field": "company_name", "order": "asc" },
+    "features": { "soft_delete": true, "audit_log": true, "activity_feed": true, "attachments": true }
+  },
+  {
+    "key": "contact",
+    "name": "Contact",
+    "plural_name": "Contacts",
+    "table_name": "contacts",
+    "icon": "Users",
+    "primary_field": "last_name",
+    "search_fields": ["first_name", "last_name", "email", "title"],
+    "default_sort": { "field": "last_name", "order": "asc" },
+    "features": { "soft_delete": true, "audit_log": true, "activity_feed": true, "attachments": false }
+  },
+  {
+    "key": "carrier",
+    "name": "Carrier",
+    "plural_name": "Carriers",
+    "table_name": "carriers",
+    "icon": "Shield",
+    "primary_field": "name",
+    "search_fields": ["name", "am_best_rating"],
+    "default_sort": { "field": "name", "order": "asc" },
+    "features": { "soft_delete": true, "audit_log": true, "activity_feed": true, "attachments": false }
+  },
+  {
+    "key": "submission",
+    "name": "Submission",
+    "plural_name": "Submissions",
+    "table_name": "submissions",
+    "icon": "FileText",
+    "primary_field": "id",
+    "search_fields": ["notes"],
+    "default_sort": { "field": "created_at", "order": "desc" },
+    "features": { "soft_delete": true, "audit_log": true, "activity_feed": true, "attachments": true }
+  },
+  {
+    "key": "line_of_business",
+    "name": "Line of Business",
+    "plural_name": "Lines of Business",
+    "table_name": "lines_of_business",
+    "icon": "Layers",
+    "primary_field": "name",
+    "search_fields": ["name", "abbreviation"],
+    "default_sort": { "field": "name", "order": "asc" },
+    "features": { "soft_delete": true, "audit_log": true, "activity_feed": false, "attachments": false }
+  },
+  {
+    "key": "form_paper",
+    "name": "Form/Paper",
+    "plural_name": "Forms/Papers",
+    "table_name": "form_papers",
+    "icon": "FileStack",
+    "primary_field": "name",
+    "search_fields": ["name", "form_number"],
+    "default_sort": { "field": "name", "order": "asc" },
+    "features": { "soft_delete": true, "audit_log": true, "activity_feed": false, "attachments": false }
+  },
+  {
+    "key": "capacity",
+    "name": "Underwriter Capacity",
+    "plural_name": "Underwriter Capacities",
+    "table_name": "underwriter_capacity",
+    "icon": "BarChart3",
+    "primary_field": "id",
+    "search_fields": ["appetite_notes"],
+    "default_sort": { "field": "updated_at", "order": "desc" },
+    "features": { "soft_delete": true, "audit_log": true, "activity_feed": true, "attachments": false }
+  },
+  {
+    "key": "email",
+    "name": "Email",
+    "plural_name": "Emails",
+    "table_name": "emails",
+    "icon": "Mail",
+    "primary_field": "subject",
+    "search_fields": ["subject", "body_text", "from_address"],
+    "default_sort": { "field": "sent_at", "order": "desc" },
+    "features": { "soft_delete": false, "audit_log": false, "activity_feed": false, "attachments": true }
+  },
+  {
+    "key": "user",
+    "name": "User",
+    "plural_name": "Users",
+    "table_name": "users",
+    "icon": "UserCog",
+    "primary_field": "email",
+    "search_fields": ["email", "first_name", "last_name"],
+    "default_sort": { "field": "last_name", "order": "asc" },
+    "features": { "soft_delete": true, "audit_log": true, "activity_feed": false, "attachments": false }
+  },
+  {
+    "key": "team",
+    "name": "Team",
+    "plural_name": "Teams",
+    "table_name": "teams",
+    "icon": "UsersRound",
+    "primary_field": "name",
+    "search_fields": ["name", "region"],
+    "default_sort": { "field": "name", "order": "asc" },
+    "features": { "soft_delete": false, "audit_log": true, "activity_feed": false, "attachments": false }
+  }
+]

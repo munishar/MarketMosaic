@@ -1,0 +1,102 @@
+[
+  {
+    "key": "client_permissions",
+    "entity_key": "client",
+    "role_permissions": {
+      "admin": { "create": true, "read": true, "update": true, "delete": true },
+      "manager": { "create": true, "read": true, "update": true, "delete": true, "row_filter": "team" },
+      "servicer": { "create": true, "read": true, "update": true, "delete": false, "row_filter": "own" },
+      "viewer": { "create": false, "read": true, "update": false, "delete": false }
+    }
+  },
+  {
+    "key": "contact_permissions",
+    "entity_key": "contact",
+    "role_permissions": {
+      "admin": { "create": true, "read": true, "update": true, "delete": true },
+      "manager": { "create": true, "read": true, "update": true, "delete": true },
+      "servicer": { "create": true, "read": true, "update": true, "delete": false },
+      "viewer": { "create": false, "read": true, "update": false, "delete": false }
+    }
+  },
+  {
+    "key": "carrier_permissions",
+    "entity_key": "carrier",
+    "role_permissions": {
+      "admin": { "create": true, "read": true, "update": true, "delete": true },
+      "manager": { "create": true, "read": true, "update": true, "delete": false },
+      "servicer": { "create": false, "read": true, "update": false, "delete": false },
+      "viewer": { "create": false, "read": true, "update": false, "delete": false }
+    }
+  },
+  {
+    "key": "submission_permissions",
+    "entity_key": "submission",
+    "role_permissions": {
+      "admin": { "create": true, "read": true, "update": true, "delete": true },
+      "manager": { "create": true, "read": true, "update": true, "delete": true, "row_filter": "team" },
+      "servicer": { "create": true, "read": true, "update": true, "delete": false, "row_filter": "own" },
+      "viewer": { "create": false, "read": true, "update": false, "delete": false }
+    }
+  },
+  {
+    "key": "email_permissions",
+    "entity_key": "email",
+    "role_permissions": {
+      "admin": { "create": true, "read": true, "update": true, "delete": true },
+      "manager": { "create": true, "read": true, "update": true, "delete": false },
+      "servicer": { "create": true, "read": true, "update": false, "delete": false },
+      "viewer": { "create": false, "read": true, "update": false, "delete": false }
+    }
+  },
+  {
+    "key": "capacity_permissions",
+    "entity_key": "capacity",
+    "role_permissions": {
+      "admin": { "create": true, "read": true, "update": true, "delete": true },
+      "manager": { "create": true, "read": true, "update": true, "delete": true },
+      "servicer": { "create": true, "read": true, "update": true, "delete": false },
+      "viewer": { "create": false, "read": true, "update": false, "delete": false }
+    }
+  },
+  {
+    "key": "user_permissions",
+    "entity_key": "user",
+    "role_permissions": {
+      "admin": { "create": true, "read": true, "update": true, "delete": true },
+      "manager": { "create": false, "read": true, "update": false, "delete": false, "row_filter": "team" },
+      "servicer": { "create": false, "read": true, "update": false, "delete": false, "row_filter": "own" },
+      "viewer": { "create": false, "read": true, "update": false, "delete": false, "row_filter": "own" }
+    }
+  },
+  {
+    "key": "team_permissions",
+    "entity_key": "team",
+    "role_permissions": {
+      "admin": { "create": true, "read": true, "update": true, "delete": true },
+      "manager": { "create": false, "read": true, "update": true, "delete": false, "row_filter": "own" },
+      "servicer": { "create": false, "read": true, "update": false, "delete": false },
+      "viewer": { "create": false, "read": true, "update": false, "delete": false }
+    }
+  },
+  {
+    "key": "line_of_business_permissions",
+    "entity_key": "line_of_business",
+    "role_permissions": {
+      "admin": { "create": true, "read": true, "update": true, "delete": true },
+      "manager": { "create": true, "read": true, "update": true, "delete": false },
+      "servicer": { "create": false, "read": true, "update": false, "delete": false },
+      "viewer": { "create": false, "read": true, "update": false, "delete": false }
+    }
+  },
+  {
+    "key": "form_paper_permissions",
+    "entity_key": "form_paper",
+    "role_permissions": {
+      "admin": { "create": true, "read": true, "update": true, "delete": true },
+      "manager": { "create": true, "read": true, "update": true, "delete": false },
+      "servicer": { "create": false, "read": true, "update": false, "delete": false },
+      "viewer": { "create": false, "read": true, "update": false, "delete": false }
+    }
+  }
+]

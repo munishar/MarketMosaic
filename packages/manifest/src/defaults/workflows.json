@@ -1,0 +1,183 @@
+[
+  {
+    "key": "submission_workflow",
+    "name": "Submission Workflow",
+    "entity_key": "submission",
+    "status_field": "status",
+    "stages": [
+      {
+        "key": "draft",
+        "name": "Draft",
+        "color": "#6B7280",
+        "order": 1,
+        "allowed_transitions": ["submitted"],
+        "auto_actions": []
+      },
+      {
+        "key": "submitted",
+        "name": "Submitted",
+        "color": "#2E75B6",
+        "order": 2,
+        "allowed_transitions": ["quoted", "declined", "expired", "lost"],
+        "auto_actions": [
+          {
+            "event": "on_enter",
+            "action": "create_activity",
+            "params": { "type": "submission_created", "summary": "Submission sent to market" }
+          }
+        ]
+      },
+      {
+        "key": "quoted",
+        "name": "Quoted",
+        "color": "#EAB308",
+        "order": 3,
+        "allowed_transitions": ["bound", "declined", "expired", "lost"],
+        "auto_actions": [
+          {
+            "event": "on_enter",
+            "action": "create_notification",
+            "params": { "type": "quote_received", "title": "Quote received" }
+          }
+        ]
+      },
+      {
+        "key": "bound",
+        "name": "Bound",
+        "color": "#16A34A",
+        "order": 4,
+        "allowed_transitions": [],
+        "auto_actions": [
+          {
+            "event": "on_enter",
+            "action": "create_activity",
+            "params": { "type": "bound", "summary": "Policy bound" }
+          }
+        ]
+      },
+      {
+        "key": "declined",
+        "name": "Declined",
+        "color": "#DC2626",
+        "order": 5,
+        "allowed_transitions": ["draft"],
+        "auto_actions": [
+          {
+            "event": "on_enter",
+            "action": "create_notification",
+            "params": { "type": "submission_declined", "title": "Submission declined" }
+          }
+        ]
+      },
+      {
+        "key": "expired",
+        "name": "Expired",
+        "color": "#9CA3AF",
+        "order": 6,
+        "allowed_transitions": ["draft"],
+        "auto_actions": []
+      },
+      {
+        "key": "lost",
+        "name": "Lost",
+        "color": "#991B1B",
+        "order": 7,
+        "allowed_transitions": ["draft"],
+        "auto_actions": []
+      }
+    ]
+  },
+  {
+    "key": "submission_target_workflow",
+    "name": "Submission Target Workflow",
+    "entity_key": "submission_target",
+    "status_field": "status",
+    "stages": [
+      {
+        "key": "pending",
+        "name": "Pending",
+        "color": "#6B7280",
+        "order": 1,
+        "allowed_transitions": ["submitted"]
+      },
+      {
+        "key": "submitted",
+        "name": "Submitted",
+        "color": "#2E75B6",
+        "order": 2,
+        "allowed_transitions": ["reviewing", "quoted", "declined", "expired"]
+      },
+      {
+        "key": "reviewing",
+        "name": "Reviewing",
+        "color": "#7C3AED",
+        "order": 3,
+        "allowed_transitions": ["quoted", "declined", "expired"]
+      },
+      {
+        "key": "quoted",
+        "name": "Quoted",
+        "color": "#EAB308",
+        "order": 4,
+        "allowed_transitions": ["bound", "declined", "expired"]
+      },
+      {
+        "key": "declined",
+        "name": "Declined",
+        "color": "#DC2626",
+        "order": 5,
+        "allowed_transitions": []
+      },
+      {
+        "key": "bound",
+        "name": "Bound",
+        "color": "#16A34A",
+        "order": 6,
+        "allowed_transitions": []
+      },
+      {
+        "key": "expired",
+        "name": "Expired",
+        "color": "#9CA3AF",
+        "order": 7,
+        "allowed_transitions": []
+      }
+    ]
+  },
+  {
+    "key": "client_lifecycle",
+    "name": "Client Lifecycle",
+    "entity_key": "client",
+    "status_field": "status",
+    "stages": [
+      {
+        "key": "prospect",
+        "name": "Prospect",
+        "color": "#6B7280",
+        "order": 1,
+        "allowed_transitions": ["active", "lost"]
+      },
+      {
+        "key": "active",
+        "name": "Active",
+        "color": "#16A34A",
+        "order": 2,
+        "allowed_transitions": ["inactive", "lost"]
+      },
+      {
+        "key": "inactive",
+        "name": "Inactive",
+        "color": "#EAB308",
+        "order": 3,
+        "allowed_transitions": ["active", "lost"]
+      },
+      {
+        "key": "lost",
+        "name": "Lost",
+        "color": "#DC2626",
+        "order": 4,
+        "allowed_transitions": ["prospect"]
+      }
+    ]
+  }
+]
