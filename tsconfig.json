@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "paths": {
+      "@brokerflow/shared": ["./packages/shared/src"],
+      "@brokerflow/shared/*": ["./packages/shared/src/*"],
+      "@brokerflow/db": ["./packages/db/src"],
+      "@brokerflow/manifest": ["./packages/manifest/src"],
+      "@brokerflow/manifest/*": ["./packages/manifest/src/*"]
+    }
+  },
+  "references": [
+    { "path": "./packages/shared" },
+    { "path": "./packages/db" },
+    { "path": "./packages/manifest" },
+    { "path": "./apps/web" },
+    { "path": "./apps/api" }
+  ],
+  "exclude": ["node_modules", "dist", "build"]
+}

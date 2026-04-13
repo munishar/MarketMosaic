@@ -1,0 +1,23 @@
+{
+  "name": "brokerflow",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-powered commercial lines insurance broker platform",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "lint": "turbo lint",
+    "type-check": "turbo type-check",
+    "db:migrate": "npm run migrate --workspace=packages/db",
+    "db:seed": "npm run seed --workspace=packages/db",
+    "clean": "turbo clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0"
+  },
+  "engines": { "node": ">=20.0.0" },
+  "packageManager": "npm@10.0.0"
+}
