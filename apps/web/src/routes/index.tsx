@@ -4,13 +4,13 @@ import { AppShell } from '@/components/layout/AppShell';
 import { GlobalSearch } from '@/components/global-search/GlobalSearch';
 import { LoadingState } from '@/components/shared/LoadingState';
 
-// Lazy-loaded feature page stubs
+// Lazy-loaded feature pages
 const DashboardPage = lazy(() => import('@/features/dashboard/DashboardPage'));
-const ClientsPage = lazy(() => import('@/features/clients/ClientsPage'));
-const ContactsPage = lazy(() => import('@/features/contacts/ContactsPage'));
-const CarriersPage = lazy(() => import('@/features/carriers/CarriersPage'));
-const LinesPage = lazy(() => import('@/features/lines/LinesPage'));
-const CapacityPage = lazy(() => import('@/features/capacity/CapacityPage'));
+const ClientsPage = lazy(() => import('@/features/clients/ClientManager'));
+const ContactsPage = lazy(() => import('@/features/contacts/ContactManager'));
+const CarriersPage = lazy(() => import('@/features/carriers/CarrierManager'));
+const LinesPage = lazy(() => import('@/features/lines/LineOfBusinessManager'));
+const CapacityPage = lazy(() => import('@/features/capacity/CapacityMatrix'));
 const SubmissionsPage = lazy(() => import('@/features/submissions/SubmissionsPage'));
 const PlacementsPage = lazy(() => import('@/features/placements/PlacementsPage'));
 const RenewalsPage = lazy(() => import('@/features/renewals/RenewalsPage'));

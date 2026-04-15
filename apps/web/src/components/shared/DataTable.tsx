@@ -27,7 +27,7 @@ export interface DataTableProps<T> {
   rowKey?: (row: T) => string;
 }
 
-export function DataTable<T extends Record<string, unknown>>({
+export function DataTable<T extends Record<string, unknown> = Record<string, unknown>>({
   columns,
   data,
   isLoading,
