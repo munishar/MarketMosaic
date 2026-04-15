@@ -5,7 +5,7 @@ import { GlobalSearch } from '@/components/global-search/GlobalSearch';
 import { LoadingState } from '@/components/shared/LoadingState';
 
 // Lazy-loaded feature pages
-const DashboardPage = lazy(() => import('@/features/dashboard/DashboardPage'));
+const DashboardPage = lazy(() => import('@/features/dashboard/Dashboard'));
 const ClientsPage = lazy(() => import('@/features/clients/ClientManager'));
 const ContactsPage = lazy(() => import('@/features/contacts/ContactManager'));
 const CarriersPage = lazy(() => import('@/features/carriers/CarrierManager'));
@@ -15,7 +15,7 @@ const SubmissionsPage = lazy(() => import('@/features/submissions/SubmissionMana
 const PlacementsPage = lazy(() => import('@/features/placements/PlacementTracker'));
 const RenewalsPage = lazy(() => import('@/features/renewals/RenewalCalendar'));
 const EmailPage = lazy(() => import('@/features/email/EmailInbox'));
-const NetworkPage = lazy(() => import('@/features/network/NetworkPage'));
+const NetworkPage = lazy(() => import('@/features/network/NetworkGraph'));
 const SyncPage = lazy(() => import('@/features/sync/SyncPage'));
 const ConfigPage = lazy(() => import('@/features/config/ConfigPage'));
 
