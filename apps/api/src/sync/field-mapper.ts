@@ -94,12 +94,16 @@ function setNestedValue(obj: Record<string, unknown>, path: string, value: unkno
   const parts = path.split('.');
   let current: Record<string, unknown> = obj;
   for (let i = 0; i < parts.length - 1; i++) {
-    if (!(parts[i] in current) || typeof current[parts[i]] !== 'object') {
-      current[parts[i]] = {};
+    const key = parts[i];
+    if (key === '__proto__' || key === 'constructor' || key === 'prototype') continue;
+    if (!(key in current) || typeof current[key] !== 'object') {
+      current[key] = {};
     }
-    current = current[parts[i]] as Record<string, unknown>;
+    current = current[key] as Record<string, unknown>;
   }
-  current[parts[parts.length - 1]] = value;
+  const finalKey = parts[parts.length - 1];
+  if (finalKey === '__proto__' || finalKey === 'constructor' || finalKey === 'prototype') return;
+  current[finalKey] = value;
 }
 
 function applyTransform(value: unknown, transform: string): unknown {
