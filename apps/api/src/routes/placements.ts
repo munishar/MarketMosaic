@@ -33,4 +33,12 @@ router.put('/:id/status', apiRateLimit, authenticate, authorize('submission', 'u
   } catch (error) { next(error); }
 });
 
+// GET /placements
+router.get('/', apiRateLimit, authenticate, authorize('submission', 'read'), validate(listQueryParamsSchema, 'query'), async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await placementService.getList(req.query as Record<string, unknown>);
+    res.json(result);
+  } catch (error) { next(error); }
+});
+
 export default router;

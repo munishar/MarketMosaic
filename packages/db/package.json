@@ -5,8 +5,8 @@
   "main": "src/connection.ts",
   "types": "src/connection.ts",
   "scripts": {
-    "migrate": "ts-node src/migrate.ts",
-    "seed": "ts-node src/seed.ts",
+    "migrate": "tsx src/migrate.ts",
+    "seed": "tsx src/seed.ts",
     "build": "tsc",
     "type-check": "tsc --noEmit"
   },

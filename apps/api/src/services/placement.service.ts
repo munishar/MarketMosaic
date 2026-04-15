@@ -85,3 +85,6 @@ export async function getTimeline(params: ListParams & PlacementFilters): Promis
   const { rows, total } = await placementQueries.findTimeline({ ...params, page, limit });
   return { data: rows, meta: { page, limit, total, total_pages: Math.ceil(total / limit) } };
 }
+export async function getList(params: ListParams & PlacementFilters): Promise<PlacementListResult> {
+  return getTimeline(params);
+}

@@ -1,47 +1,39 @@
-# ---- Base ----
 FROM node:20-alpine AS base
 WORKDIR /app
+RUN apk add --no-cache libc6-compat
 
-# ---- Dependencies ----
+# Install dependencies
 FROM base AS deps
-COPY package.json package-lock.json ./
-COPY apps/api/package.json ./apps/api/
+COPY package.json package-lock.json turbo.json ./
 COPY packages/shared/package.json ./packages/shared/
 COPY packages/db/package.json ./packages/db/
 COPY packages/manifest/package.json ./packages/manifest/
-RUN npm ci --ignore-scripts
+COPY apps/api/package.json ./apps/api/
+RUN npm ci
 
-# ---- Build ----
-FROM deps AS build
-COPY tsconfig.json ./
-COPY packages/shared/ ./packages/shared/
-COPY packages/db/ ./packages/db/
-COPY packages/manifest/ ./packages/manifest/
-COPY apps/api/ ./apps/api/
-RUN npm run build --workspace=packages/shared && \
-    npm run build --workspace=packages/db && \
-    npm run build --workspace=packages/manifest && \
-    npm run build --workspace=apps/api
+# Build
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN npm run build --workspace=packages/shared
+RUN npm run build --workspace=packages/db
+RUN npm run build --workspace=packages/manifest
+RUN npm run build --workspace=apps/api
 
-# ---- Production ----
-FROM node:20-alpine AS production
+# Runtime
+FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/apps/api/node_modules ./apps/api/node_modules
-COPY --from=build /app/packages/shared/dist ./packages/shared/dist
-COPY --from=build /app/packages/shared/package.json ./packages/shared/
-COPY --from=build /app/packages/db/dist ./packages/db/dist
-COPY --from=build /app/packages/db/package.json ./packages/db/
-COPY --from=build /app/packages/manifest/dist ./packages/manifest/dist
-COPY --from=build /app/packages/manifest/package.json ./packages/manifest/
-COPY --from=build /app/apps/api/dist ./apps/api/dist
-COPY --from=build /app/apps/api/package.json ./apps/api/
-
+COPY --from=builder /app/packages/shared/dist ./packages/shared/dist
+COPY --from=builder /app/packages/shared/package.json ./packages/shared/package.json
+COPY --from=builder /app/packages/db/dist ./packages/db/dist
+COPY --from=builder /app/packages/db/package.json ./packages/db/package.json
+COPY --from=builder /app/packages/manifest/dist ./packages/manifest/dist
+COPY --from=builder /app/packages/manifest/package.json ./packages/manifest/package.json
+COPY --from=builder /app/apps/api/dist ./apps/api/dist
+COPY --from=builder /app/apps/api/package.json ./apps/api/package.json
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
 EXPOSE 3001
-
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-  CMD wget -qO- http://localhost:3001/health || exit 1
-
 CMD ["node", "apps/api/dist/server.js"]

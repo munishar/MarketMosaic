@@ -2,7 +2,17 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "noEmit": true
+    "rootDir": "./src",
+    "noEmit": false,
+    "paths": {
+      "@marketmosaic/shared": ["../../packages/shared/dist"],
+      "@marketmosaic/shared/*": ["../../packages/shared/dist/*"],
+      "@marketmosaic/db": ["../../packages/db/dist"],
+      "@marketmosaic/db/*": ["../../packages/db/dist/*"],
+      "@marketmosaic/manifest": ["../../packages/manifest/dist"],
+      "@marketmosaic/manifest/*": ["../../packages/manifest/dist/*"]
+    }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/__tests__/**", "src/**/*.test.ts"]
 }
