@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ArrowDownLeft,
   ArrowUpRight,
-  Mail,
   Pencil,
   Sparkles,
 } from 'lucide-react';
@@ -157,22 +156,16 @@ const EmailInbox: React.FC = () => {
   const columns: Column<Email>[] = useMemo(
     () => [
       {
-        key: 'direction',
-        header: '',
-        className: 'w-8',
-        render: (value) =>
-          value === EmailDirection.inbound ? (
-            <ArrowDownLeft className="h-4 w-4 text-[#2E75B6]" />
-          ) : (
-            <ArrowUpRight className="h-4 w-4 text-[#16A34A]" />
-          ),
-      },
-      {
         key: 'from_address',
         header: 'From / To',
         sortable: true,
         render: (_value, row) => (
-          <div className="truncate">
+          <div className="flex items-center gap-2 truncate">
+            {row.direction === EmailDirection.inbound ? (
+              <ArrowDownLeft className="h-4 w-4 shrink-0 text-[#2E75B6]" />
+            ) : (
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-[#16A34A]" />
+            )}
             <span className="text-sm font-medium text-gray-900">
               {row.direction === EmailDirection.inbound
                 ? row.from_address
@@ -199,12 +192,12 @@ const EmailInbox: React.FC = () => {
         ),
       },
       {
-        key: 'direction_badge',
+        key: 'direction',
         header: 'Direction',
         className: 'w-28',
-        render: (_value, row) => (
+        render: (value, row) => (
           <Badge variant={row.direction === EmailDirection.inbound ? 'primary' : 'success'}>
-            {row.direction}
+            {value as string}
           </Badge>
         ),
       },
