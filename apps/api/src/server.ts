@@ -18,6 +18,10 @@ import templateRoutes from './routes/templates';
 import submissionRoutes from './routes/submissions';
 import placementRoutes from './routes/placements';
 import renewalRoutes from './routes/renewals';
+import emailRoutes from './routes/emails';
+import importRoutes from './routes/import';
+import inboundEmailWebhook from './webhooks/inbound-email';
+import oauthCallbackWebhook from './webhooks/oauth-callback';
 
 const app = express();
 
@@ -47,6 +51,10 @@ app.use('/api/templates', templateRoutes);
 app.use('/api/submissions', submissionRoutes);
 app.use('/api/placements', placementRoutes);
 app.use('/api/renewals', renewalRoutes);
+app.use('/api/emails', emailRoutes);
+app.use('/api/import', importRoutes);
+app.use('/api/webhooks/inbound-email', inboundEmailWebhook);
+app.use('/api/webhooks/oauth-callback', oauthCallbackWebhook);
 
 // Error handler (must be last)
 app.use(errorHandler);
