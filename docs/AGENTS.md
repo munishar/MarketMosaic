@@ -1,6 +1,6 @@
-# BrokerFlow — Multi-Agent Build Orchestration
+# marketmosaic — Multi-Agent Build Orchestration
 
-> **Purpose:** This file defines the agentic architecture for building BrokerFlow using parallel Claude Code agents. Each agent owns a bounded domain, produces artifacts against shared contracts, and integrates cleanly at defined seams.
+> **Purpose:** This file defines the agentic architecture for building marketmosaic using parallel Claude Code agents. Each agent owns a bounded domain, produces artifacts against shared contracts, and integrates cleanly at defined seams.
 >
 > **Runtime:** Claude Code (GitHub) — spawn agents per section below.
 >
@@ -129,7 +129,7 @@ packages/
 
 **Instructions for Agent 0:**
 
-1. Read the PRD document `docs/BrokerFlow_PRD_v2.0.docx` — specifically Section 4 (Data Model), Section 6 (Shared State), Section 13 (Config-Driven Architecture).
+1. Read the PRD document `docs/marketmosaic_PRD_v2.0.docx` — specifically Section 4 (Data Model), Section 6 (Shared State), Section 13 (Config-Driven Architecture).
 2. For every entity in Section 4, create a TypeScript interface with JSDoc comments. Every field from the PRD tables must be present with correct types.
 3. Enums: consolidate ALL enums into a single `enums.ts`. Include: `UserRole`, `ContactType`, `CarrierType`, `LOBCategory`, `FormPaperType`, `SubmissionStatus`, `SubmissionTargetStatus`, `EmailDirection`, `EmailSource`, `EmailParseStatus`, `AttachmentType`, `ActivityType`, `NotificationType`, `RelationshipStrength`, `SyncScheduleType`, `SyncFrequency`, `SyncJobStatus`, `DataFreshnessStatus`, `AMSProvider`, `ManifestType`.
 4. Zod schemas: create a Zod schema for every entity that mirrors the TypeScript interface. These are used for API request validation (backend) and form validation (frontend).
@@ -138,7 +138,7 @@ packages/
 7. Manifest schemas: TypeScript types for all 7 manifest types from PRD Section 13.2. Default JSON files that define the initial platform config matching the PRD exactly.
 8. **Test:** Every type file must compile with `tsc --noEmit`. Zod schemas must have unit tests validating correct and incorrect payloads.
 
-**Acceptance criteria:** `npm run build` in `packages/shared` passes. `npm test` passes. All other agents can `import { Client, Contact, Submission } from '@brokerflow/shared'` and get full type safety.
+**Acceptance criteria:** `npm run build` in `packages/shared` passes. `npm test` passes. All other agents can `import { Client, Contact, Submission } from '@marketmosaic/shared'` and get full type safety.
 
 ---
 

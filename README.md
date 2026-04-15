@@ -1,13 +1,13 @@
-# BrokerFlow
+# marketmosaic
 
 **AI-powered commercial lines insurance broker platform.**
 
-BrokerFlow unifies contact management, underwriter matching, submission workflows, email communication, document generation, capacity tracking, and renewal management into a single intelligent system — purpose-built for independent commercial lines brokers.
+marketmosaic unifies contact management, underwriter matching, submission workflows, email communication, document generation, capacity tracking, and renewal management into a single intelligent system — purpose-built for independent commercial lines brokers.
 
 ## Architecture
 
 ```
-brokerflow/
+marketmosaic/
 ├── apps/
 │   ├── web/              # React 18 + TypeScript + Tailwind + shadcn/ui
 │   └── api/              # Node.js + Express + PostgreSQL
@@ -23,7 +23,7 @@ brokerflow/
 ## Quick Start
 
 ```bash
-git clone <repo-url> && cd brokerflow
+git clone <repo-url> && cd marketmosaic
 npm install
 cp .env.example .env        # fill in values
 docker compose up -d         # PostgreSQL + Redis
@@ -40,7 +40,7 @@ This repo is designed to be built by **20 parallel AI agents** across 9 dependen
 
 | Document | Description |
 |----------|-------------|
-| [`docs/BrokerFlow_PRD_v2.0.docx`](docs/BrokerFlow_PRD_v2.0.docx) | Full PRD — 13 sections, 25 components, 18 entities |
+| [`docs/marketmosaic_PRD_v2.0.docx`](docs/marketmosaic_PRD_v2.0.docx) | Full PRD — 13 sections, 25 components, 18 entities |
 | [`docs/AGENTS.md`](docs/AGENTS.md) | Multi-agent build orchestration |
 
 ## Tech Stack

@@ -1,11 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import * as formService from '../form.service';
 
-vi.mock('@brokerflow/db', () => ({
+vi.mock('@marketmosaic/db', () => ({
   query: vi.fn(),
 }));
 
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 const mockQuery = vi.mocked(query);
 
 describe('FormService', () => {

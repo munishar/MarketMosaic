@@ -1,4 +1,4 @@
-import type { LineOfBusiness } from '@brokerflow/shared';
+import type { LineOfBusiness } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface LOBState {

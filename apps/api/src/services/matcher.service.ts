@@ -1,7 +1,7 @@
 import * as matchQueries from '../queries/match.queries';
 import { AppError } from '../middleware/error-handler';
 import { scoreCandidate, rankCandidates, type MatchCandidate, type MatchInput, type RelationshipData, type HistoricalData, type MatchScore } from '../lib/scoring';
-import { RelationshipStrength } from '@brokerflow/shared';
+import { RelationshipStrength } from '@marketmosaic/shared';
 
 export interface MatchRequest {
   client_id: string;

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { Request, Response, NextFunction } from 'express';
 import { authorize } from '../authorize';
-import { UserRole } from '@brokerflow/shared';
+import { UserRole } from '@marketmosaic/shared';
 import { JwtPayload } from '../../lib/jwt';
 
 function createMockReq(user?: JwtPayload): Request {

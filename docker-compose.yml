@@ -4,7 +4,7 @@ services:
     image: postgres:16-alpine
     ports: ["5432:5432"]
     environment:
-      POSTGRES_DB: brokerflow
+      POSTGRES_DB: marketmosaic
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes: [pgdata:/var/lib/postgresql/data]
@@ -32,7 +32,7 @@ services:
       redis:
         condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/brokerflow
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/marketmosaic
       REDIS_URL: redis://redis:6379
       JWT_SECRET: local-dev-jwt-secret-min-32-chars-long
       API_PORT: "3001"

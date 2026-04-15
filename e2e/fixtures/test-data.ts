@@ -1,20 +1,20 @@
 export const testUsers = {
   admin: {
-    email: 'admin@brokerflow.test',
+    email: 'admin@marketmosaic.test',
     password: 'TestAdmin123!',
     role: 'admin' as const,
     first_name: 'Admin',
     last_name: 'User',
   },
   servicer: {
-    email: 'servicer@brokerflow.test',
+    email: 'servicer@marketmosaic.test',
     password: 'TestServicer123!',
     role: 'servicer' as const,
     first_name: 'Service',
     last_name: 'Rep',
   },
   viewer: {
-    email: 'viewer@brokerflow.test',
+    email: 'viewer@marketmosaic.test',
     password: 'TestViewer123!',
     role: 'viewer' as const,
     first_name: 'View',

@@ -4,7 +4,7 @@ import { authenticate } from '../middleware/authenticate';
 import { authorize } from '../middleware/authorize';
 import { validate } from '../middleware/validate';
 import { rateLimit } from '../middleware/rate-limit';
-import { listQueryParamsSchema } from '@brokerflow/shared';
+import { listQueryParamsSchema } from '@marketmosaic/shared';
 import * as attachmentService from '../services/attachment.service';
 import { AppError } from '../middleware/error-handler';
 

@@ -1,5 +1,5 @@
 import type { AMSAdapter } from '../ams-adapter';
-import { AMSProvider } from '@brokerflow/shared';
+import { AMSProvider } from '@marketmosaic/shared';
 import { AppliedEpicAdapter } from './applied-epic';
 import { AMS360Adapter } from './ams360';
 import { CSVImportAdapter } from './csv-import';

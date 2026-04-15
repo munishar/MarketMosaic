@@ -2,7 +2,7 @@ import React from 'react';
 import { Clock, CheckCircle, AlertTriangle, RefreshCw, XCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
-import type { DataFreshnessStatus } from '@brokerflow/shared';
+import type { DataFreshnessStatus } from '@marketmosaic/shared';
 
 export interface FreshnessBadgeProps {
   status: DataFreshnessStatus | string;

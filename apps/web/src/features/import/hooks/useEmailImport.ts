@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { apiClient } from '@/lib/api-client';
-import type { EmailImportJob } from '@brokerflow/shared';
+import type { EmailImportJob } from '@marketmosaic/shared';
 
 interface MatchedContact {
   id: string;

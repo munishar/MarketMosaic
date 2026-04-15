@@ -1,4 +1,4 @@
-import { RelationshipStrength } from '@brokerflow/shared';
+import { RelationshipStrength } from '@marketmosaic/shared';
 
 export interface MatchCandidate {
   contact_id: string;

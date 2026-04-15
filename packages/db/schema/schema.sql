@@ -1,5 +1,5 @@
--- BrokerFlow DDL Schema
--- Complete database definition for the BrokerFlow commercial insurance broker platform
+-- marketmosaic DDL Schema
+-- Complete database definition for the marketmosaic commercial insurance broker platform
 
 -- =============================================================================
 -- Extensions & Utility Functions

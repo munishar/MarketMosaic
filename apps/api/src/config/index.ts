@@ -27,7 +27,7 @@ interface Config {
 export const config: Config = {
   port: parseInt(process.env.PORT ?? '3001', 10),
   nodeEnv: process.env.NODE_ENV ?? 'development',
-  databaseUrl: process.env.DATABASE_URL ?? 'postgresql://postgres:postgres@localhost:5432/brokerflow',
+  databaseUrl: process.env.DATABASE_URL ?? 'postgresql://postgres:postgres@localhost:5432/marketmosaic',
   redisUrl: process.env.REDIS_URL ?? 'redis://localhost:6379',
   jwt: {
     accessSecret: process.env.JWT_ACCESS_SECRET ?? 'access-secret-dev-only',

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { formatDate } from '@/lib/utils';
-import type { User } from '@brokerflow/shared';
+import type { User } from '@marketmosaic/shared';
 
 interface UserProfileProps {
   user: User;

@@ -72,7 +72,7 @@ app.use(errorHandler);
 // Start server only when not in test mode
 if (process.env.NODE_ENV !== 'test') {
   app.listen(config.port, () => {
-    console.log(`BrokerFlow API running on port ${config.port}`);
+    console.log(`marketmosaic API running on port ${config.port}`);
   });
 }
 

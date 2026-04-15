@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { apiClient } from '@/lib/api-client';
-import type { User, Team } from '@brokerflow/shared';
+import type { User, Team } from '@marketmosaic/shared';
 
 interface PaginationMeta {
   page: number;

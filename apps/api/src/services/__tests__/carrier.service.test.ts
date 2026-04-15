@@ -1,12 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import * as carrierService from '../carrier.service';
 
-// Mock @brokerflow/db
-vi.mock('@brokerflow/db', () => ({
+// Mock @marketmosaic/db
+vi.mock('@marketmosaic/db', () => ({
   query: vi.fn(),
 }));
 
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 const mockQuery = vi.mocked(query);
 
 describe('CarrierService', () => {

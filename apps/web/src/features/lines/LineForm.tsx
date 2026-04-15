@@ -4,7 +4,7 @@ import {
   LOBCategory,
   createLineOfBusinessSchema,
   type LineOfBusiness,
-} from '@brokerflow/shared';
+} from '@marketmosaic/shared';
 
 const categoryOptions = Object.values(LOBCategory).map((c) => ({
   value: c,

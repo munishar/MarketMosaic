@@ -1,12 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import * as emailImportService from '../email-import.service';
 
-vi.mock('@brokerflow/db', () => ({ query: vi.fn() }));
+vi.mock('@marketmosaic/db', () => ({ query: vi.fn() }));
 vi.mock('../../lib/event-bus', () => ({
   eventBus: { emit: vi.fn().mockResolvedValue(undefined) },
 }));
 
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 import { eventBus } from '../../lib/event-bus';
 const mockQuery = vi.mocked(query);
 const mockEmit = vi.mocked(eventBus.emit);
@@ -238,7 +238,7 @@ describe('EmailImportService', () => {
         {
           direction: 'inbound',
           from_address: 'john@carrier.com',
-          to_addresses: ['broker@brokerflow.io'],
+          to_addresses: ['broker@marketmosaic.io'],
           subject: 'Quote',
           body_text: 'Quote details',
           sent_at: '2025-01-15T10:00:00Z',
@@ -248,7 +248,7 @@ describe('EmailImportService', () => {
         {
           direction: 'inbound',
           from_address: 'unknown@random.com',
-          to_addresses: ['broker@brokerflow.io'],
+          to_addresses: ['broker@marketmosaic.io'],
           subject: 'Spam',
           body_text: 'Spam content',
           sent_at: '2025-01-15T11:00:00Z',
@@ -284,7 +284,7 @@ describe('EmailImportService', () => {
         {
           direction: 'inbound',
           from_address: 'john@carrier.com',
-          to_addresses: ['broker@brokerflow.io'],
+          to_addresses: ['broker@marketmosaic.io'],
           subject: 'Duplicate',
           body_text: 'Already imported',
           sent_at: '2025-01-15T10:00:00Z',

@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useEmails } from './hooks/useEmails';
-import { EmailDirection, type Email, type EmailAttachment } from '@brokerflow/shared';
+import { EmailDirection, type Email, type EmailAttachment } from '@marketmosaic/shared';
 
 interface EmailThreadProps {
   email: Email;

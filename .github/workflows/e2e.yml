@@ -68,12 +68,12 @@ jobs:
       - name: Run database migrations
         run: npm run db:migrate
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/brokerflow
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/marketmosaic
 
       - name: Seed database
         run: npm run db:seed
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/brokerflow
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/marketmosaic
 
       - name: Build packages
         run: npm run build
@@ -87,7 +87,7 @@ jobs:
             sleep 2
           done
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/brokerflow
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/marketmosaic
           REDIS_URL: redis://localhost:6379
           JWT_SECRET: e2e-test-jwt-secret-minimum-32-characters-long
           API_PORT: "3001"

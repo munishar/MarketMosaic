@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 import { useNotifications } from './hooks/useNotifications';
 import { NotificationItem } from './NotificationItem';
-import type { Notification } from '@brokerflow/shared';
+import type { Notification } from '@marketmosaic/shared';
 
 export const NotificationCenter: React.FC = () => {
   const { items, unreadCount, markRead, markAllRead } = useNotifications();

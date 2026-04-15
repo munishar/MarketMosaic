@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import * as templateService from '../template.service';
 
-vi.mock('@brokerflow/db', () => ({ query: vi.fn() }));
+vi.mock('@marketmosaic/db', () => ({ query: vi.fn() }));
 
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 const mockQuery = vi.mocked(query);
 
 const makeTemplate = (overrides = {}) => ({

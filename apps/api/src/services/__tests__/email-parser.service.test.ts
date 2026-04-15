@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import * as emailParserService from '../email-parser.service';
 
-vi.mock('@brokerflow/db', () => ({ query: vi.fn() }));
+vi.mock('@marketmosaic/db', () => ({ query: vi.fn() }));
 vi.mock('../../lib/event-bus', () => ({
   eventBus: { emit: vi.fn().mockResolvedValue(undefined) },
 }));
@@ -9,7 +9,7 @@ vi.mock('../../ai/email-parser', () => ({
   parseEmailWithAI: vi.fn(),
 }));
 
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 import { eventBus } from '../../lib/event-bus';
 import { parseEmailWithAI } from '../../ai/email-parser';
 const mockQuery = vi.mocked(query);
@@ -25,7 +25,7 @@ const makeEmail = (overrides: Record<string, unknown> = {}) => ({
   thread_id: 't1',
   direction: 'inbound',
   from_address: 'john@carrier.com',
-  to_addresses: ['broker@brokerflow.io'],
+  to_addresses: ['broker@marketmosaic.io'],
   cc_addresses: [],
   subject: 'Quote for Acme Corp GL',
   body_text: 'Premium: $50,000. Limits: $1M/$2M. Deductible: $5,000.',

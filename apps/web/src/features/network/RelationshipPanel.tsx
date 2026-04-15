@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Save } from 'lucide-react';
-import { RelationshipStrength } from '@brokerflow/shared';
+import { RelationshipStrength } from '@marketmosaic/shared';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Select } from '@/components/ui/Select';

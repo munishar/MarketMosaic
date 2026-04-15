@@ -3,7 +3,7 @@ import { authenticate } from '../middleware/authenticate';
 import { authorize } from '../middleware/authorize';
 import { validate } from '../middleware/validate';
 import { rateLimit } from '../middleware/rate-limit';
-import { createCapacitySchema, updateCapacitySchema, listQueryParamsSchema } from '@brokerflow/shared';
+import { createCapacitySchema, updateCapacitySchema, listQueryParamsSchema } from '@marketmosaic/shared';
 import * as capacityService from '../services/capacity.service';
 
 const router = Router();

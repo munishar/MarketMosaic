@@ -3,7 +3,7 @@ import { authenticate } from '../middleware/authenticate';
 import { authorize } from '../middleware/authorize';
 import { validate } from '../middleware/validate';
 import { rateLimit } from '../middleware/rate-limit';
-import { createTeamSchema, updateTeamSchema, listQueryParamsSchema } from '@brokerflow/shared';
+import { createTeamSchema, updateTeamSchema, listQueryParamsSchema } from '@marketmosaic/shared';
 import * as teamService from '../services/team.service';
 
 const router = Router();

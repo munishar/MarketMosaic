@@ -1,4 +1,4 @@
-import type { Email } from '@brokerflow/shared';
+import type { Email } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface EmailState {

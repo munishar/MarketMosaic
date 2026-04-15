@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Activity as ActivityIcon, Loader2 } from 'lucide-react';
 import { Select } from '@/components/ui/Select';
 import { Button } from '@/components/ui/Button';
-import { EntityType } from '@brokerflow/shared';
+import { EntityType } from '@marketmosaic/shared';
 import { useActivities } from './hooks/useActivities';
 import { ActivityItem } from './ActivityItem';
 

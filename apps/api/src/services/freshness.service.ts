@@ -3,7 +3,7 @@ import { AppError } from '../middleware/error-handler';
 import { eventBus } from '../lib/event-bus';
 import type { ListParams } from '../queries/carrier.queries';
 import type { FreshnessFilters } from '../queries/freshness.queries';
-import { DataFreshnessStatus } from '@brokerflow/shared';
+import { DataFreshnessStatus } from '@marketmosaic/shared';
 
 export interface FreshnessListResult {
   data: Record<string, unknown>[];

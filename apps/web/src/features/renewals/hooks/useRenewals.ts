@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { apiClient } from '@/lib/api-client';
-import type { Submission } from '@brokerflow/shared';
+import type { Submission } from '@marketmosaic/shared';
 
 interface RenewalFilters {
   status?: string;

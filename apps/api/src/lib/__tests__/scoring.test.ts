@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { scoreCandidate, rankCandidates, type MatchCandidate, type MatchInput, type RelationshipData, type HistoricalData } from '../scoring';
-import { RelationshipStrength } from '@brokerflow/shared';
+import { RelationshipStrength } from '@marketmosaic/shared';
 
 const makeCandidate = (overrides: Partial<MatchCandidate> = {}): MatchCandidate => ({
   contact_id: 'ct1',

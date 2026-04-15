@@ -3,7 +3,7 @@ import { authenticate } from '../middleware/authenticate';
 import { authorize } from '../middleware/authorize';
 import { validate } from '../middleware/validate';
 import { rateLimit } from '../middleware/rate-limit';
-import { createTemplateSchema, updateTemplateSchema, listQueryParamsSchema } from '@brokerflow/shared';
+import { createTemplateSchema, updateTemplateSchema, listQueryParamsSchema } from '@marketmosaic/shared';
 import * as templateService from '../services/template.service';
 import { z } from 'zod';
 

@@ -1,8 +1,8 @@
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 import { hashPassword, comparePassword } from '../lib/password';
 import { signAccessToken, signRefreshToken, verifyRefreshToken, JwtPayload } from '../lib/jwt';
 import { AppError } from '../middleware/error-handler';
-import { UserRole, User } from '@brokerflow/shared';
+import { UserRole, User } from '@marketmosaic/shared';
 
 interface LoginInput {
   email: string;

@@ -4,8 +4,8 @@ import { DataTable, type Column } from '@/components/shared/DataTable';
 import { FilterBar, type FilterDef } from '@/components/shared/FilterBar';
 import { StatusBadge } from '@/components/shared/StatusBadge';
 import { formatDateTime } from '@/lib/utils';
-import { SyncJobStatus, SyncJobType } from '@brokerflow/shared';
-import type { SyncJob } from '@brokerflow/shared';
+import { SyncJobStatus, SyncJobType } from '@marketmosaic/shared';
+import type { SyncJob } from '@marketmosaic/shared';
 
 const statusFilterOptions = Object.values(SyncJobStatus).map((v) => ({
   value: v,

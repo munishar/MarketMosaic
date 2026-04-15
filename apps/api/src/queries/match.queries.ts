@@ -1,4 +1,4 @@
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 
 export async function getClientProfile(clientId: string): Promise<Record<string, unknown> | null> {
   const result = await query(

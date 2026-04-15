@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/Card';
 import { Dialog } from '@/components/ui/Dialog';
 import { LineForm } from './LineForm';
 import { useLines } from './hooks/useLines';
-import { LOBCategory, type LineOfBusiness } from '@brokerflow/shared';
+import { LOBCategory, type LineOfBusiness } from '@marketmosaic/shared';
 
 const categoryOptions = Object.values(LOBCategory).map((c) => ({
   value: c,

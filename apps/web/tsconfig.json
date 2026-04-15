@@ -15,10 +15,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@brokerflow/shared": ["../../packages/shared/src"],
-      "@brokerflow/shared/*": ["../../packages/shared/src/*"],
-      "@brokerflow/manifest": ["../../packages/manifest/src"],
-      "@brokerflow/manifest/*": ["../../packages/manifest/src/*"]
+      "@marketmosaic/shared": ["../../packages/shared/src"],
+      "@marketmosaic/shared/*": ["../../packages/shared/src/*"],
+      "@marketmosaic/manifest": ["../../packages/manifest/src"],
+      "@marketmosaic/manifest/*": ["../../packages/manifest/src/*"]
     }
   },
   "include": ["src/**/*"],

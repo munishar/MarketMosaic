@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { Request, Response, NextFunction } from 'express';
 import { authenticate } from '../authenticate';
-import { UserRole } from '@brokerflow/shared';
+import { UserRole } from '@marketmosaic/shared';
 
 vi.mock('../../lib/jwt', () => ({
   verifyAccessToken: vi.fn((token: string) => {

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { signAccessToken, verifyAccessToken, signRefreshToken, verifyRefreshToken, JwtPayload } from '../jwt';
-import { UserRole } from '@brokerflow/shared';
+import { UserRole } from '@marketmosaic/shared';
 
 const testPayload: JwtPayload = {
   user_id: '123',

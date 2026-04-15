@@ -4,7 +4,7 @@ import { Tabs, type TabItem } from '@/components/ui/Tabs';
 import { Card } from '@/components/ui/Card';
 import { StatusBadge } from '@/components/shared/StatusBadge';
 import { formatCurrency, formatDate } from '@/lib/utils';
-import type { Client } from '@brokerflow/shared';
+import type { Client } from '@marketmosaic/shared';
 
 interface ClientDetailProps {
   client: Client;

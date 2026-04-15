@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import * as attachmentService from '../attachment.service';
 
-vi.mock('@brokerflow/db', () => ({ query: vi.fn() }));
+vi.mock('@marketmosaic/db', () => ({ query: vi.fn() }));
 vi.mock('../../lib/storage', () => ({
   storage: {
     upload: vi.fn().mockResolvedValue({ url: 'http://localhost/uploads/test.pdf', key: 'attachments/test.pdf', bucket: 'local' }),
@@ -9,7 +9,7 @@ vi.mock('../../lib/storage', () => ({
   },
 }));
 
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 import { storage } from '../../lib/storage';
 const mockQuery = vi.mocked(query);
 const mockUpload = vi.mocked(storage.upload);

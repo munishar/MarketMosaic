@@ -5,7 +5,7 @@ import {
   createContactSchema,
   type Contact,
   type Carrier,
-} from '@brokerflow/shared';
+} from '@marketmosaic/shared';
 
 const contactTypeOptions = Object.values(ContactType).map((t) => ({
   value: t,

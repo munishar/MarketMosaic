@@ -7,7 +7,7 @@ import { DataTable, type Column } from '@/components/shared/DataTable';
 import { Badge } from '@/components/ui/Badge';
 import { UserProfile } from './UserProfile';
 import { useTeam } from './hooks/useTeam';
-import { UserRole, type User } from '@brokerflow/shared';
+import { UserRole, type User } from '@marketmosaic/shared';
 
 const roleOptions = Object.values(UserRole).map((r) => ({
   value: r,

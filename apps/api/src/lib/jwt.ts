@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { UserRole } from '@brokerflow/shared';
+import { UserRole } from '@marketmosaic/shared';
 import { config } from '../config';
 
 export interface JwtPayload {

@@ -14,7 +14,7 @@ import { Badge } from '@/components/ui/Badge';
 import { DataTable, type Column } from '@/components/shared/DataTable';
 import { useEmailImport } from './hooks/useEmailImport';
 import { cn } from '@/lib/utils';
-import type { EmailImportJob } from '@brokerflow/shared';
+import type { EmailImportJob } from '@marketmosaic/shared';
 
 const STEPS = ['Connect Provider', 'Scan & Preview', 'Import', 'Report'];
 

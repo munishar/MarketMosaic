@@ -1,7 +1,7 @@
 import { processMessage, type ChatMessage, type OrchestratorOutput } from '../ai/assistant/orchestrator';
 import { AppError } from '../middleware/error-handler';
 import { isWriteTool } from '../ai/assistant/tools';
-import { UserRole } from '@brokerflow/shared';
+import { UserRole } from '@marketmosaic/shared';
 
 // TODO: Persist chat history to Redis or database for scalability across instances and restarts
 const chatHistory = new Map<string, ChatMessage[]>();

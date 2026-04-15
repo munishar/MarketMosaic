@@ -1,7 +1,7 @@
 import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import type { EntityDefinition, FieldSchema, PermissionMatrixConfig, NavigationConfig, WorkflowDefinition } from '@brokerflow/manifest';
+import type { EntityDefinition, FieldSchema, PermissionMatrixConfig, NavigationConfig, WorkflowDefinition } from '@marketmosaic/manifest';
 import { DynamicEntityList } from '../DynamicEntityList';
 
 // Mock the store

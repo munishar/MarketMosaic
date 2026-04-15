@@ -3,7 +3,7 @@ import { authenticate } from '../middleware/authenticate';
 import { authorize } from '../middleware/authorize';
 import { validate } from '../middleware/validate';
 import { rateLimit } from '../middleware/rate-limit';
-import { sendEmailSchema, listQueryParamsSchema } from '@brokerflow/shared';
+import { sendEmailSchema, listQueryParamsSchema } from '@marketmosaic/shared';
 import * as emailService from '../services/email.service';
 import * as emailParserService from '../services/email-parser.service';
 

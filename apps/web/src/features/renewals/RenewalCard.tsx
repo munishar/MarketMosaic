@@ -2,8 +2,8 @@ import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { formatDate } from '@/lib/utils';
-import type { Submission } from '@brokerflow/shared';
-import { SubmissionStatus } from '@brokerflow/shared';
+import type { Submission } from '@marketmosaic/shared';
+import { SubmissionStatus } from '@marketmosaic/shared';
 
 interface RenewalCardProps {
   submission: Submission;

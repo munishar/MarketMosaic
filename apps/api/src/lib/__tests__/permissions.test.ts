@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { checkPermission, getRowFilter, buildRowFilterClause } from '../permissions';
-import { UserRole } from '@brokerflow/shared';
+import { UserRole } from '@marketmosaic/shared';
 
 describe('Permissions utilities', () => {
   describe('checkPermission', () => {

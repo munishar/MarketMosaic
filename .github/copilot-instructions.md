@@ -1,29 +1,29 @@
-# BrokerFlow — Copilot Instructions
+# marketmosaic — Copilot Instructions
 
 ## Project Overview
 
-BrokerFlow is an AI-powered commercial lines insurance broker platform. It is a monorepo built with Turborepo containing a React frontend, Node.js backend, and shared packages.
+marketmosaic is an AI-powered commercial lines insurance broker platform. It is a monorepo built with Turborepo containing a React frontend, Node.js backend, and shared packages.
 
 **Domain context:** This platform serves independent commercial lines insurance brokers who place business across multiple carriers via their underwriters. Key domain terms: servicer (internal team member), underwriter (external contact at a carrier), client/insured (the business being insured), carrier (insurance company), line of business (GL, Property, WC, etc.), capacity (how much limit an underwriter can write), submission (package sent to underwriter requesting a quote), placement (tracking a submission through quote/bind lifecycle).
 
 ## Repository Structure
 
 ```
-brokerflow/
+marketmosaic/
 ├── apps/web/          → React 18 + TypeScript + Vite + Tailwind + shadcn/ui
 ├── apps/api/          → Node.js + Express + PostgreSQL + Redis
 ├── packages/shared/   → Shared TypeScript interfaces, Zod schemas, enums, constants
 ├── packages/db/       → Database migrations, seeds, connection
 ├── packages/manifest/ → Config-driven architecture manifest schemas + defaults
 ├── e2e/               → Playwright E2E tests
-└── docs/              → PRD (BrokerFlow_PRD_v2.0.docx) and AGENTS.md
+└── docs/              → PRD (marketmosaic_PRD_v2.0.docx) and AGENTS.md
 ```
 
 ## Source of Truth
 
 **Always read `docs/AGENTS.md` first** when working on any issue. It contains the exact file deliverables, instructions, and acceptance criteria for each agent/task. The agent number in the issue title maps directly to a section in AGENTS.md.
 
-**Read `docs/BrokerFlow_PRD_v2.0.docx`** for data model details (Section 4), component specifications (Section 5), shared state architecture (Section 6), AI integration specs (Section 7), API routes (Section 8), and config-driven architecture (Section 13).
+**Read `docs/marketmosaic_PRD_v2.0.docx`** for data model details (Section 4), component specifications (Section 5), shared state architecture (Section 6), AI integration specs (Section 7), API routes (Section 8), and config-driven architecture (Section 13).
 
 ## Coding Standards
 
@@ -51,7 +51,7 @@ brokerflow/
 - Color palette: Primary `#1B3A5C`, Secondary `#2E75B6`, Success `#16A34A`, Warning `#EAB308`, Danger `#DC2626`.
 - Use `DataTable` component from `src/components/shared/DataTable.tsx` for all list views.
 - Use `EntityForm` component from `src/components/shared/EntityForm.tsx` for all forms.
-- Forms validate with Zod schemas imported from `@brokerflow/shared`.
+- Forms validate with Zod schemas imported from `@marketmosaic/shared`.
 
 ### Testing
 - Backend: Vitest with integration tests against a test database.
@@ -67,12 +67,12 @@ brokerflow/
 ### Imports
 ```typescript
 // Always use package imports for shared code
-import { Client, Contact, SubmissionStatus } from '@brokerflow/shared';
-import { createClientSchema } from '@brokerflow/shared/validation';
+import { Client, Contact, SubmissionStatus } from '@marketmosaic/shared';
+import { createClientSchema } from '@marketmosaic/shared/validation';
 
 // Never use relative imports across package boundaries
 // ❌ import { Client } from '../../../packages/shared/src/types/entities/client';
-// ✅ import { Client } from '@brokerflow/shared';
+// ✅ import { Client } from '@marketmosaic/shared';
 ```
 
 ## Dependency Rules

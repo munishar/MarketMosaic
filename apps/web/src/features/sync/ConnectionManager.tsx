@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { StatusBadge } from '@/components/shared/StatusBadge';
 import { formatDateTime } from '@/lib/utils';
-import type { AMSConnection } from '@brokerflow/shared';
-import { AMSConnectionStatus } from '@brokerflow/shared';
+import type { AMSConnection } from '@marketmosaic/shared';
+import { AMSConnectionStatus } from '@marketmosaic/shared';
 
 const connectionIcon: Record<string, React.ReactNode> = {
   [AMSConnectionStatus.connected]: <Wifi className="h-5 w-5 text-green-500" />,

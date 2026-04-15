@@ -1,4 +1,4 @@
-import type { Submission } from '@brokerflow/shared';
+import type { Submission } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface SubmissionState {

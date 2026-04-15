@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '@/store';
 import { apiClient } from '@/lib/api-client';
-import type { User } from '@brokerflow/shared';
+import type { User } from '@marketmosaic/shared';
 
 export function useAuth() {
   const { user, accessToken, isAuthenticated } = useAppStore((s) => s.auth);

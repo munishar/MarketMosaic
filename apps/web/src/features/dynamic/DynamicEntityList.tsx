@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useCallback } from 'react';
-import type { FieldSchema } from '@brokerflow/manifest';
+import type { FieldSchema } from '@marketmosaic/manifest';
 import { DataTable, type Column } from '@/components/shared/DataTable';
 import { Button } from '@/components/ui/Button';
 import { useDynamicEntity } from './hooks/useDynamicEntity';

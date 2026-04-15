@@ -1,4 +1,4 @@
-import type { Client } from '@brokerflow/shared';
+import type { Client } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface ClientState {

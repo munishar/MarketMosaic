@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { apiClient } from '@/lib/api-client';
 import { useAppStore } from '@/store';
-import type { DataFreshnessScore } from '@brokerflow/shared';
+import type { DataFreshnessScore } from '@marketmosaic/shared';
 
 interface PaginationMeta {
   page: number;

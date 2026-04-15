@@ -1,4 +1,4 @@
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 import type { ListParams, PaginatedResult } from './carrier.queries';
 
 const ALLOWED_SORT_FIELDS = ['filename', 'type', 'created_at', 'file_size'];

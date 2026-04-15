@@ -20,7 +20,7 @@ export async function sendEmail(
   // Build email record
   const emailData: Record<string, unknown> = {
     direction: 'outbound',
-    from_address: data.from_address ?? 'noreply@brokerflow.io',
+    from_address: data.from_address ?? 'noreply@marketmosaic.io',
     to_addresses: data.to_addresses,
     cc_addresses: data.cc_addresses ?? [],
     subject: data.subject,
@@ -62,7 +62,7 @@ export async function saveDraft(
 ): Promise<Record<string, unknown>> {
   const emailData: Record<string, unknown> = {
     direction: 'outbound',
-    from_address: data.from_address ?? 'noreply@brokerflow.io',
+    from_address: data.from_address ?? 'noreply@marketmosaic.io',
     to_addresses: data.to_addresses ?? [],
     cc_addresses: data.cc_addresses ?? [],
     subject: data.subject ?? '',

@@ -1,4 +1,4 @@
-import type { Activity } from '@brokerflow/shared';
+import type { Activity } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface ActivityState {

@@ -1,4 +1,4 @@
-import type { Notification } from '@brokerflow/shared';
+import type { Notification } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface NotificationState {

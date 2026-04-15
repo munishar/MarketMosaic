@@ -7,8 +7,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@brokerflow/shared': path.resolve(__dirname, '../../packages/shared/src'),
-      '@brokerflow/manifest': path.resolve(__dirname, '../../packages/manifest/src'),
+      '@marketmosaic/shared': path.resolve(__dirname, '../../packages/shared/src'),
+      '@marketmosaic/manifest': path.resolve(__dirname, '../../packages/manifest/src'),
     },
   },
   server: {

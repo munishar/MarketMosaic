@@ -9,7 +9,7 @@ import { Dialog } from '@/components/ui/Dialog';
 import { CarrierForm } from './CarrierForm';
 import { CarrierDetail } from './CarrierDetail';
 import { useCarriers } from './hooks/useCarriers';
-import { CarrierType, type Carrier } from '@brokerflow/shared';
+import { CarrierType, type Carrier } from '@marketmosaic/shared';
 
 const carrierTypeOptions = Object.values(CarrierType).map((t) => ({
   value: t,

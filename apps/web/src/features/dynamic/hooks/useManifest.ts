@@ -5,14 +5,14 @@ import type {
   WorkflowDefinition,
   NavigationConfig,
   PermissionMatrixConfig,
-} from '@brokerflow/manifest';
+} from '@marketmosaic/manifest';
 import {
   defaultEntities,
   defaultFields,
   defaultWorkflows,
   defaultNavigation,
   defaultPermissions,
-} from '@brokerflow/manifest';
+} from '@marketmosaic/manifest';
 
 export interface ManifestOverrides {
   entities?: EntityDefinition[];
@@ -31,7 +31,7 @@ export interface ManifestData {
 }
 
 /**
- * Fetch and cache manifest configs using defaults from @brokerflow/manifest.
+ * Fetch and cache manifest configs using defaults from @marketmosaic/manifest.
  * Accepts optional overrides to merge with defaults.
  */
 export function useManifest(overrides?: ManifestOverrides): ManifestData {

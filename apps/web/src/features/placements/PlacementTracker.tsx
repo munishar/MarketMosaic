@@ -6,7 +6,7 @@ import { PlacementCard } from './PlacementCard';
 import { PlacementDetail } from './PlacementDetail';
 import { usePlacements } from './hooks/usePlacements';
 import { cn } from '@/lib/utils';
-import type { SubmissionTarget } from '@brokerflow/shared';
+import type { SubmissionTarget } from '@marketmosaic/shared';
 
 const STATUS_LABELS: Record<string, string> = {
   pending: 'Pending',

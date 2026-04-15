@@ -1,12 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import * as renewalService from '../renewal.service';
 
-vi.mock('@brokerflow/db', () => ({ query: vi.fn() }));
+vi.mock('@marketmosaic/db', () => ({ query: vi.fn() }));
 vi.mock('../../lib/event-bus', () => ({
   eventBus: { emit: vi.fn().mockResolvedValue(undefined) },
 }));
 
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 import { eventBus } from '../../lib/event-bus';
 const mockQuery = vi.mocked(query);
 const mockEmit = vi.mocked(eventBus.emit);

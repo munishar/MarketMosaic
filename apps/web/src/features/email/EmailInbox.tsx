@@ -21,7 +21,7 @@ import {
   EmailDirection,
   EmailParseStatus,
   type Email,
-} from '@brokerflow/shared';
+} from '@marketmosaic/shared';
 
 const directionOptions = Object.values(EmailDirection).map((d) => ({
   value: d,

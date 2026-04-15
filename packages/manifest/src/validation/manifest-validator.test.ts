@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { ManifestType } from '@brokerflow/shared';
+import { ManifestType } from '@marketmosaic/shared';
 import { validateManifest } from './manifest-validator';
 
 describe('validateManifest', () => {

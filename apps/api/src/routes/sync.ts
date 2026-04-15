@@ -10,7 +10,7 @@ import {
   createAMSConnectionSchema,
   updateAMSConnectionSchema,
   listQueryParamsSchema,
-} from '@brokerflow/shared';
+} from '@marketmosaic/shared';
 import * as syncService from '../services/sync.service';
 import * as freshnessService from '../services/freshness.service';
 

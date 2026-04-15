@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import type { EntityDefinition, FieldSchema, UILayout } from '@brokerflow/manifest';
+import type { EntityDefinition, FieldSchema, UILayout } from '@marketmosaic/manifest';
 import { useManifest, type ManifestOverrides } from './useManifest';
 
 export interface DynamicEntityData {

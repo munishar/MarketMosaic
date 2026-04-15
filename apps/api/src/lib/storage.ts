@@ -7,7 +7,7 @@
  *
  * Required env vars (production):
  *   AZURE_STORAGE_CONNECTION_STRING — Azure Storage account connection string
- *   AZURE_STORAGE_CONTAINER         — Blob container name (default: brokerflow-attachments)
+ *   AZURE_STORAGE_CONTAINER         — Blob container name (default: marketmosaic-attachments)
  */
 import path from 'path';
 import fs from 'fs';
@@ -32,7 +32,7 @@ class LocalStorageAdapter implements StorageAdapter {
   private readonly baseUrl: string;
 
   constructor() {
-    this.dir = process.env.LOCAL_STORAGE_DIR ?? '/tmp/brokerflow-uploads';
+    this.dir = process.env.LOCAL_STORAGE_DIR ?? '/tmp/marketmosaic-uploads';
     this.baseUrl = process.env.LOCAL_STORAGE_BASE_URL ?? 'http://localhost:3001/uploads';
     if (!fs.existsSync(this.dir)) {
       fs.mkdirSync(this.dir, { recursive: true });
@@ -83,7 +83,7 @@ class AzureBlobStorageAdapter implements StorageAdapter {
 
   constructor() {
     this.connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING ?? '';
-    this.containerName = process.env.AZURE_STORAGE_CONTAINER ?? 'brokerflow-attachments';
+    this.containerName = process.env.AZURE_STORAGE_CONTAINER ?? 'marketmosaic-attachments';
   }
 
   // Lazy-load the Azure SDK so the local adapter doesn't require it

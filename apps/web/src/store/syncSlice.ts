@@ -1,4 +1,4 @@
-import type { SyncSchedule, SyncJob, AMSConnection } from '@brokerflow/shared';
+import type { SyncSchedule, SyncJob, AMSConnection } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface SyncState {

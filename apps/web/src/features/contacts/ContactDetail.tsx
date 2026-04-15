@@ -5,7 +5,7 @@ import { Card } from '@/components/ui/Card';
 import { StatusBadge } from '@/components/shared/StatusBadge';
 import { Badge } from '@/components/ui/Badge';
 import { formatDate } from '@/lib/utils';
-import type { Contact } from '@brokerflow/shared';
+import type { Contact } from '@marketmosaic/shared';
 
 interface ContactDetailProps {
   contact: Contact;

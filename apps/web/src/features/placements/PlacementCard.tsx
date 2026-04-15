@@ -3,7 +3,7 @@ import { StatusBadge } from '@/components/shared/StatusBadge';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { formatCurrency } from '@/lib/utils';
-import type { SubmissionTarget } from '@brokerflow/shared';
+import type { SubmissionTarget } from '@marketmosaic/shared';
 
 interface PlacementCardProps {
   target: SubmissionTarget;

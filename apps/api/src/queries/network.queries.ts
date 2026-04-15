@@ -1,4 +1,4 @@
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 
 export interface PaginatedResult<T> {
   rows: T[];

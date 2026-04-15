@@ -3,7 +3,7 @@ import { authenticate } from '../middleware/authenticate';
 import { authorize } from '../middleware/authorize';
 import { validate } from '../middleware/validate';
 import { rateLimit } from '../middleware/rate-limit';
-import { startEmailImportSchema, listQueryParamsSchema } from '@brokerflow/shared';
+import { startEmailImportSchema, listQueryParamsSchema } from '@marketmosaic/shared';
 import * as emailImportService from '../services/email-import.service';
 
 const router = Router();

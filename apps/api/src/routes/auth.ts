@@ -2,7 +2,7 @@ import { Router, Request, Response, NextFunction } from 'express';
 import { validate } from '../middleware/validate';
 import { authenticate } from '../middleware/authenticate';
 import { rateLimit } from '../middleware/rate-limit';
-import { loginSchema, registerSchema, refreshTokenSchema } from '@brokerflow/shared';
+import { loginSchema, registerSchema, refreshTokenSchema } from '@marketmosaic/shared';
 import * as authService from '../services/auth.service';
 
 const router = Router();
@@ -22,7 +22,7 @@ router.post('/login', authRateLimit, validate(loginSchema), async (req: Request,
 router.post('/register', authRateLimit, validate(registerSchema), async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await authService.register(
-      req.body as { email: string; password: string; first_name: string; last_name: string; role?: import('@brokerflow/shared').UserRole }
+      req.body as { email: string; password: string; first_name: string; last_name: string; role?: import('@marketmosaic/shared').UserRole }
     );
     res.status(201).json({ data: result });
   } catch (error) {

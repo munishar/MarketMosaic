@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import type { FieldSchema, UISection } from '@brokerflow/manifest';
+import type { FieldSchema, UISection } from '@marketmosaic/manifest';
 import { z } from 'zod';
 import { Button } from '@/components/ui/Button';
 import { DynamicFieldRenderer } from './DynamicFieldRenderer';

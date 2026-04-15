@@ -1,4 +1,4 @@
-import type { Contact } from '@brokerflow/shared';
+import type { Contact } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface ContactState {

@@ -1,5 +1,5 @@
 {
-  "name": "@brokerflow/web",
+  "name": "@marketmosaic/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,8 +11,8 @@
     "lint": "eslint src/"
   },
   "dependencies": {
-    "@brokerflow/manifest": "*",
-    "@brokerflow/shared": "*",
+    "@marketmosaic/manifest": "*",
+    "@marketmosaic/shared": "*",
     "axios": "^1.7.0",
     "d3": "^7.9.0",
     "immer": "^10.1.0",

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { checkPermission, getRowFilter, CrudAction } from '../lib/permissions';
-import { UserRole } from '@brokerflow/shared';
+import { UserRole } from '@marketmosaic/shared';
 
 export function authorize(entity: string, action: CrudAction) {
   return (req: Request, res: Response, next: NextFunction): void => {

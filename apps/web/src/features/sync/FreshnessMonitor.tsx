@@ -4,7 +4,7 @@ import { DataTable, type Column } from '@/components/shared/DataTable';
 import { FreshnessBadge } from '@/components/shared/FreshnessBadge';
 import { Button } from '@/components/ui/Button';
 import { formatDateTime } from '@/lib/utils';
-import type { DataFreshnessScore } from '@brokerflow/shared';
+import type { DataFreshnessScore } from '@marketmosaic/shared';
 
 interface FreshnessMonitorProps {
   scores: DataFreshnessScore[];

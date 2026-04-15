@@ -93,7 +93,7 @@ export const Sidebar: React.FC = () => {
             BF
           </div>
           {!collapsed && (
-            <span className="text-lg font-semibold text-primary">BrokerFlow</span>
+            <span className="text-lg font-semibold text-primary">marketmosaic</span>
           )}
         </div>
       </div>

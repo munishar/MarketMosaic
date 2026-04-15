@@ -3,8 +3,8 @@ import { Dialog } from '@/components/ui/Dialog';
 import { Button } from '@/components/ui/Button';
 import { Select } from '@/components/ui/Select';
 import { Input } from '@/components/ui/Input';
-import { SyncScheduleType, SyncFrequency } from '@brokerflow/shared';
-import type { SyncSchedule } from '@brokerflow/shared';
+import { SyncScheduleType, SyncFrequency } from '@marketmosaic/shared';
+import type { SyncSchedule } from '@marketmosaic/shared';
 
 const scheduleTypeOptions = Object.values(SyncScheduleType).map((v) => ({
   value: v,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { EntityForm, type FieldConfig } from '@/components/shared/EntityForm';
-import { createCapacitySchema, type UnderwriterCapacity, type Contact, type Carrier, type LineOfBusiness } from '@brokerflow/shared';
+import { createCapacitySchema, type UnderwriterCapacity, type Contact, type Carrier, type LineOfBusiness } from '@marketmosaic/shared';
 
 function buildCapacityFields(contacts: Contact[], carriers: Carrier[], lines: LineOfBusiness[]): FieldConfig[] {
   return [

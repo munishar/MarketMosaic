@@ -1,11 +1,11 @@
 #!/bin/bash
 # =============================================================================
-# BrokerFlow — GitHub Issue Generator
+# marketmosaic — GitHub Issue Generator
 # =============================================================================
 # Prerequisites:
 #   1. GitHub CLI installed: brew install gh
 #   2. Authenticated: gh auth login
-#   3. Run from the repo root: cd brokerflow && bash docs/create-issues.sh
+#   3. Run from the repo root: cd marketmosaic && bash docs/create-issues.sh
 #
 # What this script does:
 #   1. Creates labels for tiers and agents
@@ -17,7 +17,7 @@
 set -e
 
 REPO=$(gh repo view --json nameWithOwner -q '.nameWithOwner')
-echo "🏗️  Creating BrokerFlow issues in: $REPO"
+echo "🏗️  Creating marketmosaic issues in: $REPO"
 echo ""
 
 # =============================================================================
@@ -70,7 +70,7 @@ ISSUE_NUMS[0]=$(gh issue create \
 🔴 **CRITICAL — blocks everything.**
 
 ## Instructions
-Read `docs/AGENTS.md` section **"Agent 0: Shared Contracts & Schema Foundation"** for the complete file tree and instructions. Read `docs/BrokerFlow_PRD_v2.0.docx` Section 4 (Data Model), Section 6 (Shared State), Section 13 (Config-Driven Architecture).
+Read `docs/AGENTS.md` section **"Agent 0: Shared Contracts & Schema Foundation"** for the complete file tree and instructions. Read `docs/marketmosaic_PRD_v2.0.docx` Section 4 (Data Model), Section 6 (Shared State), Section 13 (Config-Driven Architecture).
 
 ## Deliverables
 - `packages/shared/src/types/entities/` — TypeScript interfaces for all 18 entities (every field from PRD Section 4)
@@ -580,7 +580,7 @@ MEGA1=$(gh issue create \
   --label "mega-issue,blocking" \
   --body "## Orchestration Issue — Assign to Claude
 
-This mega issue drives the first half of the BrokerFlow build. Claude should solve the linked issues **in tier order**, committing after each tier. Do not start a tier until all issues in the previous tier are complete and compiling.
+This mega issue drives the first half of the marketmosaic build. Claude should solve the linked issues **in tier order**, committing after each tier. Do not start a tier until all issues in the previous tier are complete and compiling.
 
 ### Execution Order
 
@@ -604,7 +604,7 @@ This mega issue drives the first half of the BrokerFlow build. Claude should sol
 ### Rules
 1. Read \`CLAUDE.md\` at repo root for coding standards.
 2. For each issue, read \`docs/AGENTS.md\` for the corresponding agent section — it has the exact file list and instructions.
-3. Read \`docs/BrokerFlow_PRD_v2.0.docx\` for data model and component specs.
+3. Read \`docs/marketmosaic_PRD_v2.0.docx\` for data model and component specs.
 4. After completing each tier, verify: \`npm run type-check && npm run test\`
 5. Commit with message format: \`feat(agent-N): <description>\`
 6. Create one branch per agent: \`agent-N/description\`

@@ -9,7 +9,7 @@ import { Dialog } from '@/components/ui/Dialog';
 import { ClientForm } from './ClientForm';
 import { ClientDetail } from './ClientDetail';
 import { useClients } from './hooks/useClients';
-import { ClientStatus, type Client } from '@brokerflow/shared';
+import { ClientStatus, type Client } from '@marketmosaic/shared';
 
 const statusFilterOptions = Object.values(ClientStatus).map((s) => ({
   value: s,

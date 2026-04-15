@@ -8,7 +8,7 @@ import { Dialog } from '@/components/ui/Dialog';
 import { FormForm } from './FormForm';
 import { useForms } from './hooks/useForms';
 import { useAppStore } from '@/store';
-import { FormPaperType, type FormPaper, type Carrier, type LineOfBusiness } from '@brokerflow/shared';
+import { FormPaperType, type FormPaper, type Carrier, type LineOfBusiness } from '@marketmosaic/shared';
 
 const typeOptions = Object.values(FormPaperType).map((t) => ({
   value: t, label: t.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),

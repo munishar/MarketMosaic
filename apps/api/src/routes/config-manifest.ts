@@ -7,7 +7,7 @@ import {
   createManifestSchema,
   updateManifestSchema,
   listQueryParamsSchema,
-} from '@brokerflow/shared';
+} from '@marketmosaic/shared';
 import * as manifestService from '../services/manifest.service';
 
 const router = Router();

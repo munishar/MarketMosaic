@@ -15,7 +15,7 @@ import { Tabs, type TabItem } from '@/components/ui/Tabs';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { formatDateTime } from '@/lib/utils';
-import { ManifestType } from '@brokerflow/shared';
+import { ManifestType } from '@marketmosaic/shared';
 import { useConfig } from './hooks/useConfig';
 import { EntityBuilder } from './EntityBuilder';
 import { WorkflowDesigner } from './WorkflowDesigner';

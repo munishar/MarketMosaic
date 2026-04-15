@@ -13,7 +13,7 @@ import {
   SubmissionStatus,
   SubmissionPriority,
   type Submission,
-} from '@brokerflow/shared';
+} from '@marketmosaic/shared';
 import { formatDate } from '@/lib/utils';
 
 const statusFilterOptions = Object.values(SubmissionStatus).map((s) => ({

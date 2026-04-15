@@ -1,4 +1,4 @@
-import { EventMap, EventName, EventHandler } from '@brokerflow/shared';
+import { EventMap, EventName, EventHandler } from '@marketmosaic/shared';
 
 class EventBus {
   private listeners: Map<string, Set<EventHandler<EventName>>> = new Map();

@@ -12,11 +12,11 @@
     "declarationMap": true,
     "sourceMap": true,
     "paths": {
-      "@brokerflow/shared": ["./packages/shared/src"],
-      "@brokerflow/shared/*": ["./packages/shared/src/*"],
-      "@brokerflow/db": ["./packages/db/src"],
-      "@brokerflow/manifest": ["./packages/manifest/src"],
-      "@brokerflow/manifest/*": ["./packages/manifest/src/*"]
+      "@marketmosaic/shared": ["./packages/shared/src"],
+      "@marketmosaic/shared/*": ["./packages/shared/src/*"],
+      "@marketmosaic/db": ["./packages/db/src"],
+      "@marketmosaic/manifest": ["./packages/manifest/src"],
+      "@marketmosaic/manifest/*": ["./packages/manifest/src/*"]
     }
   },
   "references": [

@@ -6,8 +6,8 @@ on:
 
 env:
   REGISTRY_NAME: ${{ secrets.AZURE_REGISTRY_NAME }}
-  API_IMAGE: brokerflow-api
-  WEB_IMAGE: brokerflow-web
+  API_IMAGE: marketmosaic-api
+  WEB_IMAGE: marketmosaic-web
 
 permissions:
   contents: read

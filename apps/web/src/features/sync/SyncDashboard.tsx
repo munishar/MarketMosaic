@@ -11,7 +11,7 @@ import { ScheduleBuilder } from './ScheduleBuilder';
 import { ConnectionManager } from './ConnectionManager';
 import { FreshnessMonitor } from './FreshnessMonitor';
 import { JobHistory } from './JobHistory';
-import type { SyncSchedule } from '@brokerflow/shared';
+import type { SyncSchedule } from '@marketmosaic/shared';
 
 const SyncDashboard: React.FC = () => {
   const {

@@ -12,8 +12,8 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { ActivityType } from '@brokerflow/shared';
-import type { Activity } from '@brokerflow/shared';
+import { ActivityType } from '@marketmosaic/shared';
+import type { Activity } from '@marketmosaic/shared';
 
 const typeIconMap: Record<string, { icon: React.ReactNode; color: string }> = {
   [ActivityType.email_sent]: { icon: <Mail className="h-4 w-4" />, color: 'bg-blue-100 text-blue-600' },

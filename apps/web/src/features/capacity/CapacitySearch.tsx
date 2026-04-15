@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { SearchInput } from '@/components/shared/SearchInput';
 import { FilterBar, type FilterDef } from '@/components/shared/FilterBar';
 import { Card } from '@/components/ui/Card';
-import type { Carrier, LineOfBusiness } from '@brokerflow/shared';
+import type { Carrier, LineOfBusiness } from '@marketmosaic/shared';
 
 interface CapacitySearchProps {
   carriers: Carrier[];

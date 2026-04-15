@@ -2,14 +2,14 @@
 
 ## Project Overview
 
-BrokerFlow is an AI-powered commercial lines insurance broker platform. Monorepo built with Turborepo.
+marketmosaic is an AI-powered commercial lines insurance broker platform. Monorepo built with Turborepo.
 
 **Domain:** Independent commercial lines insurance broker placing business across multiple carriers. Key terms: servicer (internal staff), underwriter (external contact at carrier), client/insured (business being insured), carrier (insurance company), line of business (GL, Property, WC), capacity (limit an underwriter can write), submission (package requesting quote), placement (tracking submission through quote/bind).
 
 ## Repository Structure
 
 ```
-brokerflow/
+marketmosaic/
 ├── apps/web/          → React 18 + TypeScript + Vite + Tailwind + shadcn/ui
 ├── apps/api/          → Node.js + Express + PostgreSQL + Redis
 ├── packages/shared/   → Shared TypeScript interfaces, Zod schemas, enums, constants
@@ -22,7 +22,7 @@ brokerflow/
 ## Source of Truth
 
 - **`docs/AGENTS.md`** — Multi-agent build plan. Agent number in issue title maps to a section here. Read the relevant section FIRST before writing any code.
-- **`docs/BrokerFlow_PRD_v2.0.docx`** — Full PRD. Section 4 = data model, Section 5 = components, Section 6 = state architecture, Section 7 = AI specs, Section 8 = API routes, Section 13 = config-driven architecture.
+- **`docs/marketmosaic_PRD_v2.0.docx`** — Full PRD. Section 4 = data model, Section 5 = components, Section 6 = state architecture, Section 7 = AI specs, Section 8 = API routes, Section 13 = config-driven architecture.
 
 ## Build & Run
 
@@ -62,7 +62,7 @@ npm run type-check            # TypeScript check all packages
 - Colors: Primary `#1B3A5C`, Secondary `#2E75B6`, Success `#16A34A`, Warning `#EAB308`, Danger `#DC2626`.
 - Use `DataTable` from `src/components/shared/` for all lists.
 - Use `EntityForm` from `src/components/shared/` for all forms.
-- Validate with Zod schemas from `@brokerflow/shared`.
+- Validate with Zod schemas from `@marketmosaic/shared`.
 
 ### Testing
 - Backend: Vitest, integration tests against test DB.
@@ -78,8 +78,8 @@ npm run type-check            # TypeScript check all packages
 ### Imports
 ```typescript
 // ✅ Always use package imports
-import { Client, Contact, SubmissionStatus } from '@brokerflow/shared';
-import { createClientSchema } from '@brokerflow/shared/validation';
+import { Client, Contact, SubmissionStatus } from '@marketmosaic/shared';
+import { createClientSchema } from '@marketmosaic/shared/validation';
 
 // ❌ Never relative imports across packages
 import { Client } from '../../../packages/shared/src/types/entities/client';

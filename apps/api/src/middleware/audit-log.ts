@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 
 export function auditLog(entityType: string) {
   return (req: Request, res: Response, next: NextFunction): void => {

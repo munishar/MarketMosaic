@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FieldSchema } from '@brokerflow/manifest';
+import type { FieldSchema } from '@marketmosaic/manifest';
 import {
   TextFieldRenderer,
   NumberFieldRenderer,

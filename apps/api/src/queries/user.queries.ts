@@ -1,4 +1,4 @@
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 import type { ListParams, PaginatedResult } from './carrier.queries';
 
 const ALLOWED_SORT_FIELDS = ['first_name', 'last_name', 'email', 'role', 'created_at'];

@@ -4,7 +4,7 @@ import {
   CarrierType,
   createCarrierSchema,
   type Carrier,
-} from '@brokerflow/shared';
+} from '@marketmosaic/shared';
 
 const carrierTypeOptions = Object.values(CarrierType).map((t) => ({
   value: t,

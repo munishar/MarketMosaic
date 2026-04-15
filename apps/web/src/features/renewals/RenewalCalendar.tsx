@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { RenewalCard } from './RenewalCard';
 import { useRenewals } from './hooks/useRenewals';
-import { SubmissionStatus, type Submission } from '@brokerflow/shared';
+import { SubmissionStatus, type Submission } from '@marketmosaic/shared';
 import { cn } from '@/lib/utils';
 
 interface MonthGroup {

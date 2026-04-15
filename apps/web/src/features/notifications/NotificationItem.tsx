@@ -7,8 +7,8 @@ import {
   Bell,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { NotificationType } from '@brokerflow/shared';
-import type { Notification } from '@brokerflow/shared';
+import { NotificationType } from '@marketmosaic/shared';
+import type { Notification } from '@marketmosaic/shared';
 
 const typeIconMap: Record<string, React.ReactNode> = {
   [NotificationType.renewal_upcoming]: <Calendar className="h-4 w-4 text-blue-500" />,

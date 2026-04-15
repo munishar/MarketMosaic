@@ -1,4 +1,4 @@
-import type { Carrier } from '@brokerflow/shared';
+import type { Carrier } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface CarrierState {

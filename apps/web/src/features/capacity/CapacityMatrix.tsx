@@ -8,7 +8,7 @@ import { CapacityForm } from './CapacityForm';
 import { CapacitySearch } from './CapacitySearch';
 import { useCapacity } from './hooks/useCapacity';
 import { useAppStore } from '@/store';
-import type { UnderwriterCapacity, Contact, Carrier, LineOfBusiness } from '@brokerflow/shared';
+import type { UnderwriterCapacity, Contact, Carrier, LineOfBusiness } from '@marketmosaic/shared';
 
 function getCapacityColor(deployed: string | null, available: string | null): 'success' | 'warning' | 'danger' | 'default' {
   if (!deployed || !available) return 'default';

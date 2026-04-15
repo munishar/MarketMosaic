@@ -1,4 +1,4 @@
-import type { User } from '@brokerflow/shared';
+import type { User } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface AuthState {

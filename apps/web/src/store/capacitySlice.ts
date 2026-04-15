@@ -1,4 +1,4 @@
-import type { UnderwriterCapacity } from '@brokerflow/shared';
+import type { UnderwriterCapacity } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface CapacityState {

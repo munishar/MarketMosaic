@@ -4,7 +4,7 @@ import { Tabs, type TabItem } from '@/components/ui/Tabs';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { formatDate } from '@/lib/utils';
-import type { Carrier } from '@brokerflow/shared';
+import type { Carrier } from '@marketmosaic/shared';
 
 interface CarrierDetailProps {
   carrier: Carrier;

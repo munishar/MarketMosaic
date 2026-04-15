@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ManifestType } from '@brokerflow/shared';
+import { ManifestType } from '@marketmosaic/shared';
 
 // --- Entity Definition Schema ---
 

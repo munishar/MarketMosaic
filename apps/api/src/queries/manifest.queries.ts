@@ -1,4 +1,4 @@
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 import type { ListParams, PaginatedResult } from './carrier.queries';
 
 const MANIFEST_SORT_FIELDS = ['manifest_type', 'key', 'version', 'effective_from', 'created_at'];

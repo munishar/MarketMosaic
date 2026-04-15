@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import type { NavigationItem } from '@brokerflow/manifest';
+import type { NavigationItem } from '@marketmosaic/manifest';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { cn } from '@/lib/utils';

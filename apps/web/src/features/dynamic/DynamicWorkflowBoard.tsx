@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import type { WorkflowDefinition, WorkflowStage } from '@brokerflow/manifest';
+import type { WorkflowDefinition, WorkflowStage } from '@marketmosaic/manifest';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { useManifest } from './hooks/useManifest';

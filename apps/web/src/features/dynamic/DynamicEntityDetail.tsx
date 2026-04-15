@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import type { FieldSchema } from '@brokerflow/manifest';
+import type { FieldSchema } from '@marketmosaic/manifest';
 import { Tabs, type TabItem } from '@/components/ui/Tabs';
 import { Badge } from '@/components/ui/Badge';
 import { useDynamicEntity } from './hooks/useDynamicEntity';

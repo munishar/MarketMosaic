@@ -3,7 +3,7 @@ import { AppError } from '../middleware/error-handler';
 import { eventBus } from '../lib/event-bus';
 import type { ListParams } from '../queries/carrier.queries';
 import type { ScheduleFilters, JobFilters, ConnectionFilters } from '../queries/sync.queries';
-import { SyncFrequency } from '@brokerflow/shared';
+import { SyncFrequency } from '@marketmosaic/shared';
 
 export interface SyncListResult {
   data: Record<string, unknown>[];

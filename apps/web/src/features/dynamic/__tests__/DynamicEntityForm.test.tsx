@@ -1,7 +1,7 @@
 import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import type { EntityDefinition, FieldSchema, PermissionMatrixConfig, NavigationConfig, WorkflowDefinition } from '@brokerflow/manifest';
+import type { EntityDefinition, FieldSchema, PermissionMatrixConfig, NavigationConfig, WorkflowDefinition } from '@marketmosaic/manifest';
 import { DynamicEntityForm } from '../DynamicEntityForm';
 
 // Mock the store - admin user by default

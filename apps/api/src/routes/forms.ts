@@ -3,7 +3,7 @@ import { authenticate } from '../middleware/authenticate';
 import { authorize } from '../middleware/authorize';
 import { validate } from '../middleware/validate';
 import { rateLimit } from '../middleware/rate-limit';
-import { createFormPaperSchema, updateFormPaperSchema, listQueryParamsSchema } from '@brokerflow/shared';
+import { createFormPaperSchema, updateFormPaperSchema, listQueryParamsSchema } from '@marketmosaic/shared';
 import * as formService from '../services/form.service';
 
 const router = Router();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { EntityForm, type FieldConfig } from '@/components/shared/EntityForm';
-import { FormPaperType, createFormPaperSchema, type FormPaper, type Carrier, type LineOfBusiness } from '@brokerflow/shared';
+import { FormPaperType, createFormPaperSchema, type FormPaper, type Carrier, type LineOfBusiness } from '@marketmosaic/shared';
 
 const typeOptions = Object.values(FormPaperType).map((t) => ({
   value: t,

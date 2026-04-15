@@ -1,4 +1,4 @@
-import { query } from '@brokerflow/db';
+import { query } from '@marketmosaic/db';
 import type { ListParams, PaginatedResult } from './carrier.queries';
 
 const FRESHNESS_SORT_FIELDS = ['entity_type', 'freshness_status', 'freshness_score', 'last_verified_at', 'next_verification_due', 'created_at'];

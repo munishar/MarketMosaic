@@ -1,4 +1,4 @@
-import type { NetworkRelationship } from '@brokerflow/shared';
+import type { NetworkRelationship } from '@marketmosaic/shared';
 import type { StoreSlice } from './index';
 
 export interface NetworkState {

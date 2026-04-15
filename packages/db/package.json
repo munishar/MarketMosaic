@@ -1,5 +1,5 @@
 {
-  "name": "@brokerflow/db",
+  "name": "@marketmosaic/db",
   "version": "0.1.0",
   "private": true,
   "main": "src/connection.ts",
@@ -11,7 +11,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@brokerflow/shared": "*",
+    "@marketmosaic/shared": "*",
     "pg": "^8.12.0"
   },
   "devDependencies": {

@@ -10,7 +10,7 @@ import { ContactForm } from './ContactForm';
 import { ContactDetail } from './ContactDetail';
 import { useContacts } from './hooks/useContacts';
 import { useAppStore } from '@/store';
-import { ContactType, type Contact, type Carrier } from '@brokerflow/shared';
+import { ContactType, type Contact, type Carrier } from '@marketmosaic/shared';
 
 const contactTypeOptions = Object.values(ContactType).map((t) => ({
   value: t,

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Dialog } from '@/components/ui/Dialog';
 import { Button } from '@/components/ui/Button';
-import { UserRole, EntityType } from '@brokerflow/shared';
+import { UserRole, EntityType } from '@marketmosaic/shared';
 
 interface PermissionCell {
   create: boolean;

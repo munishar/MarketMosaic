@@ -1,4 +1,4 @@
-import { UserRole, DEFAULT_PERMISSIONS } from '@brokerflow/shared';
+import { UserRole, DEFAULT_PERMISSIONS } from '@marketmosaic/shared';
 
 export type CrudAction = 'create' | 'read' | 'update' | 'delete';
 

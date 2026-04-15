@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { apiClient } from '@/lib/api-client';
 import { useAppStore } from '@/store';
-import type { PlatformManifest } from '@brokerflow/shared';
+import type { PlatformManifest } from '@marketmosaic/shared';
 
 interface ManifestHistoryEntry {
   id: string;

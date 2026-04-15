@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { apiClient } from '@/lib/api-client';
-import type { Email } from '@brokerflow/shared';
+import type { Email } from '@marketmosaic/shared';
 
 interface ParsedField {
   key: string;

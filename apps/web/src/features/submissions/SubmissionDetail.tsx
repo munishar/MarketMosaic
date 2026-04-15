@@ -7,7 +7,7 @@ import { DataTable, type Column } from '@/components/shared/DataTable';
 import { Badge } from '@/components/ui/Badge';
 import { formatDate, formatCurrency } from '@/lib/utils';
 import { useSubmissions } from './hooks/useSubmissions';
-import type { Submission, SubmissionTarget } from '@brokerflow/shared';
+import type { Submission, SubmissionTarget } from '@marketmosaic/shared';
 
 interface SubmissionDetailProps {
   submission: Submission;

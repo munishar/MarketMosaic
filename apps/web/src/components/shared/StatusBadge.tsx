@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from '@/components/ui/Badge';
-import type { SubmissionStatus, ClientStatus, SyncJobStatus } from '@brokerflow/shared';
+import type { SubmissionStatus, ClientStatus, SyncJobStatus } from '@marketmosaic/shared';
 
 type StatusType = SubmissionStatus | ClientStatus | SyncJobStatus | string;
 

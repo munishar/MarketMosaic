@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useAppStore } from '@/store';
-import { UserRole } from '@brokerflow/shared';
+import { UserRole } from '@marketmosaic/shared';
 
 interface Permissions {
   canCreate: boolean;

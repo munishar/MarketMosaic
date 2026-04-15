@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { apiClient } from '@/lib/api-client';
-import type { FormPaper } from '@brokerflow/shared';
+import type { FormPaper } from '@marketmosaic/shared';
 
 interface PaginationMeta {
   page: number;

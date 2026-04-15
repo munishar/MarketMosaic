@@ -5,7 +5,7 @@ import {
   ClientStatus,
   createClientSchema,
   type Client,
-} from '@brokerflow/shared';
+} from '@marketmosaic/shared';
 
 const clientFormSchema = createClientSchema.pick({
   company_name: true,

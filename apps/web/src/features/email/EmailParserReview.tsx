@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
 import { useEmailParser } from './hooks/useEmailParser';
-import type { Email } from '@brokerflow/shared';
+import type { Email } from '@marketmosaic/shared';
 
 interface EmailParserReviewProps {
   email: Email;

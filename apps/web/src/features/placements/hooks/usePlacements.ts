@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { apiClient } from '@/lib/api-client';
-import { SubmissionTargetStatus } from '@brokerflow/shared';
-import type { SubmissionTarget } from '@brokerflow/shared';
+import { SubmissionTargetStatus } from '@marketmosaic/shared';
+import type { SubmissionTarget } from '@marketmosaic/shared';
 
 interface PlacementGroup {
   status: SubmissionTargetStatus;
