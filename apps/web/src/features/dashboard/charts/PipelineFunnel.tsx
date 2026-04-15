@@ -107,5 +107,3 @@ export const PipelineFunnel: React.FC<PipelineFunnelProps> = ({ data }) => {
     </Card>
   );
 };
-
-

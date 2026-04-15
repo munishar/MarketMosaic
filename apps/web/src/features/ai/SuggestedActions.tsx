@@ -66,7 +66,7 @@ const SUGGESTION_GROUPS: SuggestionGroup[] = [
       'Show pipeline summary',
       'Check upcoming renewals',
       'Show hit ratio trends',
-      'Summarize this week\'s activity',
+      "Summarize this week's activity",
     ],
   },
 ];
