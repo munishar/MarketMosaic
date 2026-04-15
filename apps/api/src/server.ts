@@ -20,6 +20,8 @@ import placementRoutes from './routes/placements';
 import renewalRoutes from './routes/renewals';
 import emailRoutes from './routes/emails';
 import importRoutes from './routes/import';
+import syncRoutes from './routes/sync';
+import configManifestRoutes from './routes/config-manifest';
 import inboundEmailWebhook from './webhooks/inbound-email';
 import oauthCallbackWebhook from './webhooks/oauth-callback';
 
@@ -53,6 +55,8 @@ app.use('/api/placements', placementRoutes);
 app.use('/api/renewals', renewalRoutes);
 app.use('/api/emails', emailRoutes);
 app.use('/api/import', importRoutes);
+app.use('/api/sync', syncRoutes);
+app.use('/api/config/manifest', configManifestRoutes);
 app.use('/api/webhooks/inbound-email', inboundEmailWebhook);
 app.use('/api/webhooks/oauth-callback', oauthCallbackWebhook);
 
