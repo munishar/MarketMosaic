@@ -13,6 +13,8 @@ import carrierRoutes from './routes/carriers';
 import lineRoutes from './routes/lines';
 import formRoutes from './routes/forms';
 import capacityRoutes from './routes/capacity';
+import attachmentRoutes from './routes/attachments';
+import templateRoutes from './routes/templates';
 
 const app = express();
 
@@ -37,6 +39,8 @@ app.use('/api/carriers', carrierRoutes);
 app.use('/api/lines', lineRoutes);
 app.use('/api/forms', formRoutes);
 app.use('/api/capacity', capacityRoutes);
+app.use('/api/attachments', attachmentRoutes);
+app.use('/api/templates', templateRoutes);
 
 // Error handler (must be last)
 app.use(errorHandler);
