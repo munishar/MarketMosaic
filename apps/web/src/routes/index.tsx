@@ -14,7 +14,7 @@ const CapacityPage = lazy(() => import('@/features/capacity/CapacityMatrix'));
 const SubmissionsPage = lazy(() => import('@/features/submissions/SubmissionManager'));
 const PlacementsPage = lazy(() => import('@/features/placements/PlacementTracker'));
 const RenewalsPage = lazy(() => import('@/features/renewals/RenewalCalendar'));
-const EmailPage = lazy(() => import('@/features/email/EmailPage'));
+const EmailPage = lazy(() => import('@/features/email/EmailInbox'));
 const NetworkPage = lazy(() => import('@/features/network/NetworkPage'));
 const SyncPage = lazy(() => import('@/features/sync/SyncPage'));
 const ConfigPage = lazy(() => import('@/features/config/ConfigPage'));
