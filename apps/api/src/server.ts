@@ -5,6 +5,10 @@ import { config } from './config';
 import { errorHandler } from './middleware/error-handler';
 import { rateLimit } from './middleware/rate-limit';
 import authRoutes from './routes/auth';
+import userRoutes from './routes/users';
+import teamRoutes from './routes/teams';
+import clientRoutes from './routes/clients';
+import contactRoutes from './routes/contacts';
 import carrierRoutes from './routes/carriers';
 import lineRoutes from './routes/lines';
 import formRoutes from './routes/forms';
@@ -25,6 +29,10 @@ app.get('/api/health', (_req, res) => {
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/teams', teamRoutes);
+app.use('/api/clients', clientRoutes);
+app.use('/api/contacts', contactRoutes);
 app.use('/api/carriers', carrierRoutes);
 app.use('/api/lines', lineRoutes);
 app.use('/api/forms', formRoutes);
