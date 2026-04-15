@@ -1,9 +1,13 @@
 /**
- * Storage adapter — uses AWS S3 when credentials are available,
+ * Storage adapter — uses Azure Blob Storage when credentials are available,
  * falls back to a local filesystem store (for dev/test).
  *
  * All callers depend only on the `StorageAdapter` interface,
  * so swapping providers requires no route/service changes.
+ *
+ * Required env vars (production):
+ *   AZURE_STORAGE_CONNECTION_STRING — Azure Storage account connection string
+ *   AZURE_STORAGE_CONTAINER         — Blob container name (default: brokerflow-attachments)
  */
 import path from 'path';
 import fs from 'fs';
@@ -68,67 +72,99 @@ class LocalStorageAdapter implements StorageAdapter {
 
   async getSignedUrl(key: string, _expiresIn = 3600): Promise<string> {
     return `${this.baseUrl}/${key}`;
-  }}
+  }
+}
 
-// ─── S3 adapter ──────────────────────────────────────────────────────────────
+// ─── Azure Blob Storage adapter ──────────────────────────────────────────────
 
-class S3StorageAdapter implements StorageAdapter {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private client: any;
-  private readonly bucket: string;
-  private readonly region: string;
+class AzureBlobStorageAdapter implements StorageAdapter {
+  private readonly connectionString: string;
+  private readonly containerName: string;
 
   constructor() {
-    this.bucket = process.env.AWS_S3_BUCKET ?? 'brokerflow-attachments';
-    this.region = process.env.AWS_REGION ?? 'us-east-1';
+    this.connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING ?? '';
+    this.containerName = process.env.AZURE_STORAGE_CONTAINER ?? 'brokerflow-attachments';
   }
 
-  // Lazy-load the AWS SDK so the local adapter doesn't require it
-  private async getClient() {
-    if (!this.client) {
-      const { S3Client } = await import('@aws-sdk/client-s3');
-      this.client = new S3Client({ region: this.region });
-    }
-    return this.client as import('@aws-sdk/client-s3').S3Client;
+  // Lazy-load the Azure SDK so the local adapter doesn't require it
+  private async getContainerClient() {
+    const { BlobServiceClient } = await import('@azure/storage-blob');
+    const serviceClient = BlobServiceClient.fromConnectionString(this.connectionString);
+    const containerClient = serviceClient.getContainerClient(this.containerName);
+    // Ensure container exists (no-op if already present)
+    await containerClient.createIfNotExists({ access: 'blob' });
+    return containerClient;
   }
 
   async upload(key: string, body: Buffer | Readable, mimeType: string): Promise<UploadResult> {
-    const { PutObjectCommand } = await import('@aws-sdk/client-s3');
-    const client = await this.getClient();
-    await client.send(
-      new PutObjectCommand({
-        Bucket: this.bucket,
-        Key: key,
-        Body: body,
-        ContentType: mimeType,
-      }),
-    );
-    const url = `https://${this.bucket}.s3.${this.region}.amazonaws.com/${key}`;
-    return { url, key, bucket: this.bucket };
+    const containerClient = await this.getContainerClient();
+    const blockBlobClient = containerClient.getBlockBlobClient(key);
+
+    const buf =
+      body instanceof Buffer
+        ? body
+        : await new Promise<Buffer>((resolve, reject) => {
+            const chunks: Buffer[] = [];
+            (body as Readable).on('data', (c: Buffer) => chunks.push(c));
+            (body as Readable).on('end', () => resolve(Buffer.concat(chunks)));
+            (body as Readable).on('error', reject);
+          });
+
+    await blockBlobClient.uploadData(buf, {
+      blobHTTPHeaders: { blobContentType: mimeType },
+    });
+
+    return { url: blockBlobClient.url, key, bucket: this.containerName };
   }
 
   async delete(key: string): Promise<void> {
-    const { DeleteObjectCommand } = await import('@aws-sdk/client-s3');
-    const client = await this.getClient();
-    await client.send(new DeleteObjectCommand({ Bucket: this.bucket, Key: key }));
+    const containerClient = await this.getContainerClient();
+    const blockBlobClient = containerClient.getBlockBlobClient(key);
+    await blockBlobClient.deleteIfExists();
   }
 
-  async getSignedUrl(key: string, _expiresIn = 3600): Promise<string> {
-    // Returns a direct S3 URL; swap in @aws-sdk/s3-request-presigner for pre-signed URLs
-    // when the package is added to dependencies.
-    return `https://${this.bucket}.s3.${this.region}.amazonaws.com/${key}`;
+  async getSignedUrl(key: string, expiresIn = 3600): Promise<string> {
+    const { BlobServiceClient, BlobSASPermissions, generateBlobSASQueryParameters, StorageSharedKeyCredential } =
+      await import('@azure/storage-blob');
+
+    // Parse account name and key from the connection string
+    const accountNameMatch = this.connectionString.match(/AccountName=([^;]+)/);
+    const accountKeyMatch = this.connectionString.match(/AccountKey=([^;]+)/);
+
+    if (!accountNameMatch || !accountKeyMatch) {
+      // Fall back to direct URL when credentials cannot be parsed (e.g. SAS-based connection strings)
+      const serviceClient = BlobServiceClient.fromConnectionString(this.connectionString);
+      return `${serviceClient.url}/${this.containerName}/${key}`;
+    }
+
+    const accountName = accountNameMatch[1];
+    const accountKey = accountKeyMatch[1];
+    const sharedKeyCredential = new StorageSharedKeyCredential(accountName, accountKey);
+
+    const expiresOn = new Date(Date.now() + expiresIn * 1000);
+    const sasQuery = generateBlobSASQueryParameters(
+      {
+        containerName: this.containerName,
+        blobName: key,
+        permissions: BlobSASPermissions.parse('r'),
+        expiresOn,
+      },
+      sharedKeyCredential,
+    ).toString();
+
+    return `https://${accountName}.blob.core.windows.net/${this.containerName}/${key}?${sasQuery}`;
   }
 }
 
 // ─── Factory ─────────────────────────────────────────────────────────────────
 
 function createStorageAdapter(): StorageAdapter {
-  if (process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY) {
-    return new S3StorageAdapter();
+  if (process.env.AZURE_STORAGE_CONNECTION_STRING) {
+    return new AzureBlobStorageAdapter();
   }
   return new LocalStorageAdapter();
 }
 
 export const storage: StorageAdapter = createStorageAdapter();
 
-export { LocalStorageAdapter, S3StorageAdapter };
+export { LocalStorageAdapter, AzureBlobStorageAdapter };
