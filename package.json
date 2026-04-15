@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "AI-powered commercial lines insurance broker platform",
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": ["apps/*", "packages/*", "e2e"],
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
