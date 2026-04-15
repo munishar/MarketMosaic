@@ -15,6 +15,9 @@ import formRoutes from './routes/forms';
 import capacityRoutes from './routes/capacity';
 import attachmentRoutes from './routes/attachments';
 import templateRoutes from './routes/templates';
+import submissionRoutes from './routes/submissions';
+import placementRoutes from './routes/placements';
+import renewalRoutes from './routes/renewals';
 
 const app = express();
 
@@ -41,6 +44,9 @@ app.use('/api/forms', formRoutes);
 app.use('/api/capacity', capacityRoutes);
 app.use('/api/attachments', attachmentRoutes);
 app.use('/api/templates', templateRoutes);
+app.use('/api/submissions', submissionRoutes);
+app.use('/api/placements', placementRoutes);
+app.use('/api/renewals', renewalRoutes);
 
 // Error handler (must be last)
 app.use(errorHandler);
