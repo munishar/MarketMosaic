@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useSearchParams } from 'react-router-dom';
 import { AppShell } from '@/components/layout/AppShell';
 import { GlobalSearch } from '@/components/global-search/GlobalSearch';
 import { LoadingState } from '@/components/shared/LoadingState';
@@ -19,9 +19,50 @@ const NetworkPage = lazy(() => import('@/features/network/NetworkGraph'));
 const SyncPage = lazy(() => import('@/features/sync/SyncDashboard'));
 const ConfigPage = lazy(() => import('@/features/config/ConfigAdmin'));
 
+// Dynamic renderers
+const DynamicEntityListLazy = lazy(() => import('@/features/dynamic/DynamicEntityList'));
+const DynamicEntityFormLazy = lazy(() => import('@/features/dynamic/DynamicEntityForm'));
+
 const SuspenseLoader: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <Suspense fallback={<LoadingState type="page" />}>{children}</Suspense>
 );
+
+/** Wrapper that checks for ?dynamic=true and renders the dynamic version instead */
+const DynamicPage: React.FC<{
+  entityKey: string;
+  children: React.ReactNode;
+}> = ({ entityKey, children }) => {
+  const [searchParams] = useSearchParams();
+  const isDynamic = searchParams.get('dynamic') === 'true';
+
+  if (isDynamic) {
+    return <DynamicEntityListLazy entityKey={entityKey} />;
+  }
+
+  return <>{children}</>;
+};
+
+/** Wrapper for form routes with ?dynamic=true support */
+const DynamicFormPage: React.FC<{
+  entityKey: string;
+  children: React.ReactNode;
+}> = ({ entityKey, children }) => {
+  const [searchParams] = useSearchParams();
+  const isDynamic = searchParams.get('dynamic') === 'true';
+  const mode = (searchParams.get('mode') as 'create' | 'edit') ?? 'create';
+
+  if (isDynamic) {
+    return (
+      <DynamicEntityFormLazy
+        entityKey={entityKey}
+        mode={mode}
+        onSubmit={() => { window.history.back(); }}
+      />
+    );
+  }
+
+  return <>{children}</>;
+};
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -35,15 +76,15 @@ export const AppRoutes: React.FC = () => {
               <SuspenseLoader>
                 <Routes>
                   <Route path="/" element={<DashboardPage />} />
-                  <Route path="/clients/*" element={<ClientsPage />} />
-                  <Route path="/contacts/*" element={<ContactsPage />} />
-                  <Route path="/carriers/*" element={<CarriersPage />} />
-                  <Route path="/lines-of-business/*" element={<LinesPage />} />
-                  <Route path="/capacity/*" element={<CapacityPage />} />
-                  <Route path="/submissions/*" element={<SubmissionsPage />} />
+                  <Route path="/clients/*" element={<DynamicPage entityKey="client"><ClientsPage /></DynamicPage>} />
+                  <Route path="/contacts/*" element={<DynamicPage entityKey="contact"><ContactsPage /></DynamicPage>} />
+                  <Route path="/carriers/*" element={<DynamicPage entityKey="carrier"><CarriersPage /></DynamicPage>} />
+                  <Route path="/lines-of-business/*" element={<DynamicPage entityKey="line_of_business"><LinesPage /></DynamicPage>} />
+                  <Route path="/capacity/*" element={<DynamicFormPage entityKey="capacity"><CapacityPage /></DynamicFormPage>} />
+                  <Route path="/submissions/*" element={<DynamicPage entityKey="submission"><SubmissionsPage /></DynamicPage>} />
                   <Route path="/placements/*" element={<PlacementsPage />} />
                   <Route path="/renewals/*" element={<RenewalsPage />} />
-                  <Route path="/email/*" element={<EmailPage />} />
+                  <Route path="/email/*" element={<DynamicPage entityKey="email"><EmailPage /></DynamicPage>} />
                   <Route path="/network/*" element={<NetworkPage />} />
                   <Route path="/sync/*" element={<SyncPage />} />
                   <Route path="/config/*" element={<ConfigPage />} />
