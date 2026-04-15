@@ -16,8 +16,8 @@ const PlacementsPage = lazy(() => import('@/features/placements/PlacementTracker
 const RenewalsPage = lazy(() => import('@/features/renewals/RenewalCalendar'));
 const EmailPage = lazy(() => import('@/features/email/EmailInbox'));
 const NetworkPage = lazy(() => import('@/features/network/NetworkGraph'));
-const SyncPage = lazy(() => import('@/features/sync/SyncPage'));
-const ConfigPage = lazy(() => import('@/features/config/ConfigPage'));
+const SyncPage = lazy(() => import('@/features/sync/SyncDashboard'));
+const ConfigPage = lazy(() => import('@/features/config/ConfigAdmin'));
 
 const SuspenseLoader: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <Suspense fallback={<LoadingState type="page" />}>{children}</Suspense>
