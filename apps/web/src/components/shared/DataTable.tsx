@@ -27,7 +27,7 @@ export interface DataTableProps<T> {
   rowKey?: (row: T) => string;
 }
 
-export function DataTable<T extends Record<string, unknown> = Record<string, unknown>>({
+export function DataTable<T extends object = Record<string, unknown>>({
   columns,
   data,
   isLoading,
@@ -130,7 +130,7 @@ export function DataTable<T extends Record<string, unknown> = Record<string, unk
                 )}
               >
                 {columns.map((col) => {
-                  const cellValue = getNestedValue(row, col.key);
+                  const cellValue = getNestedValue(row as unknown as Record<string, unknown>, col.key);
                   return (
                     <td
                       key={col.key}
