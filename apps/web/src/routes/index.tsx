@@ -3,6 +3,8 @@ import { Routes, Route, Navigate, useSearchParams, useNavigate } from 'react-rou
 import { AppShell } from '@/components/layout/AppShell';
 import { GlobalSearch } from '@/components/global-search/GlobalSearch';
 import { LoadingState } from '@/components/shared/LoadingState';
+import { ProtectedRoute } from '@/components/shared/ProtectedRoute';
+import { LoginPage } from '@/features/auth/LoginPage';
 
 // Lazy-loaded feature pages
 const DashboardPage = lazy(() => import('@/features/dashboard/Dashboard'));
@@ -72,15 +74,17 @@ const DynamicFormPage: React.FC<{
 export const AppRoutes: React.FC = () => {
   return (
     <>
-      <GlobalSearch />
       <Routes>
+        <Route path="/login" element={<LoginPage />} />
         <Route
           path="/*"
           element={
-            <AppShell>
-              <SuspenseLoader>
-                <Routes>
-                  <Route path="/" element={<DashboardPage />} />
+            <ProtectedRoute>
+              <GlobalSearch />
+              <AppShell>
+                <SuspenseLoader>
+                  <Routes>
+                    <Route path="/" element={<DashboardPage />} />
                   <Route path="/clients/*" element={<DynamicPage entityKey="client"><ClientsPage /></DynamicPage>} />
                   <Route path="/contacts/*" element={<DynamicPage entityKey="contact"><ContactsPage /></DynamicPage>} />
                   <Route path="/carriers/*" element={<DynamicPage entityKey="carrier"><CarriersPage /></DynamicPage>} />
@@ -95,8 +99,9 @@ export const AppRoutes: React.FC = () => {
                   <Route path="/config/*" element={<ConfigPage />} />
                   <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
-              </SuspenseLoader>
-            </AppShell>
+                </SuspenseLoader>
+              </AppShell>
+            </ProtectedRoute>
           }
         />
       </Routes>

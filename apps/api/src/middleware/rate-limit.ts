@@ -24,6 +24,9 @@ if (typeof cleanupInterval.unref === 'function') {
 }
 
 export function rateLimit(windowMs?: number, maxRequests?: number) {
+  if (config.nodeEnv === 'development') {
+    return (_req: Request, _res: Response, next: NextFunction): void => next();
+  }
   const window = windowMs ?? config.rateLimit.windowMs;
   const max = maxRequests ?? config.rateLimit.maxRequests;
 

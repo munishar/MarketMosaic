@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e 'const bcrypt = require\\('\\\\''./node_modules/bcryptjs'\\\\''\\); bcrypt.compare\\('\\\\''password'\\\\'', '\\\\''$2a$10$rQEY0tn5pFqKmDVmSEHPOODnEWwRVdLsFnAafBSwhtne0QLsZbMGy'\\\\''\\).then\\(r => console.log\\('\\\\''password:'\\\\'', r\\)\\); bcrypt.compare\\('\\\\''Password1'\\\\'', '\\\\''$2a$10$rQEY0tn5pFqKmDVmSEHPOODnEWwRVdLsFnAafBSwhtne0QLsZbMGy'\\\\''\\).then\\(r => console.log\\('\\\\''Password1:'\\\\'', r\\)\\); bcrypt.compare\\('\\\\''admin'\\\\'', '\\\\''$2a$10$rQEY0tn5pFqKmDVmSEHPOODnEWwRVdLsFnAafBSwhtne0QLsZbMGy'\\\\''\\).then\\(r => console.log\\('\\\\''admin:'\\\\'', r\\)\\); bcrypt.compare\\('\\\\''admin123'\\\\'', '\\\\''$2a$10$rQEY0tn5pFqKmDVmSEHPOODnEWwRVdLsFnAafBSwhtne0QLsZbMGy'\\\\''\\).then\\(r => console.log\\('\\\\''admin123:'\\\\'', r\\)\\);')",
+      "Bash(node -e \"const bcrypt = require\\('./node_modules/bcryptjs'\\); bcrypt.hash\\('password', 10\\).then\\(h => console.log\\(h\\)\\);\")",
+      "Bash(docker compose *)"
+    ]
+  }
+}

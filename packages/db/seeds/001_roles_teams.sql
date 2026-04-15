@@ -9,7 +9,7 @@ ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO users (id, email, password_hash, first_name, last_name, role, team_id)
 VALUES
-  ('b0000000-0000-0000-0000-000000000001', 'admin@marketmosaic.com', '$2a$10$rQEY0tn5pFqKmDVmSEHPOODnEWwRVdLsFnAafBSwhtne0QLsZbMGy', 'Admin', 'User', 'admin', 'a0000000-0000-0000-0000-000000000001')
+  ('b0000000-0000-0000-0000-000000000001', 'admin@marketmosaic.com', '$2a$10$Wp0z55ch92pcCC/gXLUTeORwq3tjYN91.B8eZuVfNLwZd12hSK0.u', 'Admin', 'User', 'admin', 'a0000000-0000-0000-0000-000000000001')
 ON CONFLICT (id) DO NOTHING;
 
 UPDATE teams SET manager_id = 'b0000000-0000-0000-0000-000000000001' WHERE id = 'a0000000-0000-0000-0000-000000000001';
