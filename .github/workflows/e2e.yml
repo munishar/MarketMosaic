@@ -39,15 +39,31 @@ jobs:
       - name: Wait for services
         run: |
           echo "Waiting for PostgreSQL..."
+          pg_ready=false
           for i in $(seq 1 30); do
-            docker compose exec -T postgres pg_isready -U postgres && break
+            if docker compose exec -T postgres pg_isready -U postgres; then
+              pg_ready=true
+              break
+            fi
             sleep 2
           done
+          if [ "$pg_ready" != "true" ]; then
+            echo "PostgreSQL did not become ready in time"
+            exit 1
+          fi
           echo "Waiting for Redis..."
+          redis_ready=false
           for i in $(seq 1 15); do
-            docker compose exec -T redis redis-cli ping && break
+            if docker compose exec -T redis redis-cli ping; then
+              redis_ready=true
+              break
+            fi
             sleep 2
           done
+          if [ "$redis_ready" != "true" ]; then
+            echo "Redis did not become ready in time"
+            exit 1
+          fi
 
       - name: Run database migrations
         run: npm run db:migrate

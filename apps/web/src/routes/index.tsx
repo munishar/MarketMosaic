@@ -1,5 +1,5 @@
-import React, { lazy, Suspense } from 'react';
-import { Routes, Route, Navigate, useSearchParams } from 'react-router-dom';
+import React, { lazy, Suspense, useCallback } from 'react';
+import { Routes, Route, Navigate, useSearchParams, useNavigate } from 'react-router-dom';
 import { AppShell } from '@/components/layout/AppShell';
 import { GlobalSearch } from '@/components/global-search/GlobalSearch';
 import { LoadingState } from '@/components/shared/LoadingState';
@@ -48,15 +48,20 @@ const DynamicFormPage: React.FC<{
   children: React.ReactNode;
 }> = ({ entityKey, children }) => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const isDynamic = searchParams.get('dynamic') === 'true';
   const mode = (searchParams.get('mode') as 'create' | 'edit') ?? 'create';
+
+  const handleSubmit = useCallback(() => {
+    navigate(`/${entityKey === 'line_of_business' ? 'lines-of-business' : entityKey + 's'}`);
+  }, [navigate, entityKey]);
 
   if (isDynamic) {
     return (
       <DynamicEntityFormLazy
         entityKey={entityKey}
         mode={mode}
-        onSubmit={() => { window.history.back(); }}
+        onSubmit={handleSubmit}
       />
     );
   }

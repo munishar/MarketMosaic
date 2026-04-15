@@ -62,7 +62,11 @@ function buildZodSchema(fields: FieldSchema[]): z.ZodObject<Record<string, z.Zod
     }
 
     if (!field.required) {
-      fieldSchema = fieldSchema.optional().or(z.literal(''));
+      // For string-based fields, allow empty strings; for others use nullable/optional
+      const isStringType = !['number', 'decimal', 'boolean', 'array', 'json', 'address'].includes(field.field_type);
+      fieldSchema = isStringType
+        ? fieldSchema.optional().or(z.literal(''))
+        : fieldSchema.nullish();
     }
 
     shape[field.field_name] = fieldSchema;
