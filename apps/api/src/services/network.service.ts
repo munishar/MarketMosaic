@@ -43,12 +43,9 @@ export async function requestIntroduction(params: {
 }) {
   // Create a notification for the colleague
   await eventBus.emit('notification:created', {
+    notification_id: `intro_${Date.now()}`,
     user_id: params.colleague_id,
     type: 'network_request',
-    title: 'Introduction Request',
-    message: params.message ?? 'A colleague has requested an introduction to one of your contacts.',
-    entity_type: 'contact',
-    entity_id: params.contact_id,
   });
 
   return { success: true, message: 'Introduction request sent' };

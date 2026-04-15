@@ -22,6 +22,9 @@ import emailRoutes from './routes/emails';
 import importRoutes from './routes/import';
 import syncRoutes from './routes/sync';
 import configManifestRoutes from './routes/config-manifest';
+import matchRoutes from './routes/match';
+import networkRoutes from './routes/network';
+import aiRoutes from './routes/ai';
 import inboundEmailWebhook from './webhooks/inbound-email';
 import oauthCallbackWebhook from './webhooks/oauth-callback';
 
@@ -57,6 +60,9 @@ app.use('/api/emails', emailRoutes);
 app.use('/api/import', importRoutes);
 app.use('/api/sync', syncRoutes);
 app.use('/api/config/manifest', configManifestRoutes);
+app.use('/api/match', matchRoutes);
+app.use('/api/network', networkRoutes);
+app.use('/api/ai', aiRoutes);
 app.use('/api/webhooks/inbound-email', inboundEmailWebhook);
 app.use('/api/webhooks/oauth-callback', oauthCallbackWebhook);
 
