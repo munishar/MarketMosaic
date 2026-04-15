@@ -5,6 +5,10 @@ import { config } from './config';
 import { errorHandler } from './middleware/error-handler';
 import { rateLimit } from './middleware/rate-limit';
 import authRoutes from './routes/auth';
+import carrierRoutes from './routes/carriers';
+import lineRoutes from './routes/lines';
+import formRoutes from './routes/forms';
+import capacityRoutes from './routes/capacity';
 
 const app = express();
 
@@ -21,6 +25,10 @@ app.get('/api/health', (_req, res) => {
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/carriers', carrierRoutes);
+app.use('/api/lines', lineRoutes);
+app.use('/api/forms', formRoutes);
+app.use('/api/capacity', capacityRoutes);
 
 // Error handler (must be last)
 app.use(errorHandler);
